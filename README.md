@@ -16,7 +16,7 @@
 
 /src
   ├── /models
-       ├── simple_model.py            # A basic model for generating text outputs or performing specific tasks
+       ├── simple_model.py            # A basic model for generating ER diagram
   ├── /optimizers
        ├── gridsearch.py              # Grid search optimizer for hyperparameter tuning
        └── NSGA2Optimizer.py          # NSGA-II optimizer for multi-objective optimization
