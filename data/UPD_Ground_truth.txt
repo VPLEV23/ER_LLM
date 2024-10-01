@@ -1,0 +1,423 @@
+@startuml
+' hide the spot
+' hide circle
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+entity "Criteri di Inclusione" {
+  *record_id : string <<generated>>
+  diabete_mellito : string
+  obesità : boolean
+  malattia_cardiovascolare : boolean
+  ipertensione_arteriosa : boolean
+  dislipidemie : boolean
+  neoplasia_solida_o_tumori_del_sangue : string
+  artrite_reumatoide : boolean
+  malattia_di_still : boolean
+  lupus_eritematoso_sistemico : boolean
+  dermatomiosite : boolean
+}
+
+entity "Criteri di Esclusione" {
+  *record_id : string <<generated>>
+  malattia_genetica_nota : boolean
+  forme_indifferenziate_artriti_connettiviti_sistemiche : boolean
+  ipercolesterolemia_famigliare : boolean
+}
+
+entity "Sindromi da Predisposizione Tumorale" {
+  *record_id : string <<generated>>
+  poliposi_familiare : boolean
+  anemia_di_fanconi : boolean
+  beckwith_wideman : boolean
+  malattie_del_telomero : boolean
+  anemia_di_blackfan_diamond : boolean
+  sindrome_di_schwachman_diamond : boolean
+  neutropenie_congenite : boolean
+  disregolazioni_immunologiche : boolean
+  immunodeficit_associati_insufficienza_midollare : boolean
+}
+
+entity "Consenso Partecipazione Studio" {
+  *record_id : string <<generated>>
+  consenso_partecipazione_studio : boolean
+}
+
+entity "Arruolamento" {
+  *record_id : string <<generated>>
+  centro_arruolatore : string {IGG,SRR,AORN-SP,ASLTe,UniPD}
+  data_di_valutazione : string
+  partecipante_adulto_pediatrico : string {Pediatrico,Adulto}
+  fa_parte_di_trio : boolean
+  numeri_record_trio : string
+  anonimizzazione : string {Retrospettivo,Prospettico}
+  pseudoanonimizzazione : string
+  anno_di_nascita : string
+  età : string
+  sesso_biologico : string {Maschio,Femmina}
+}
+
+entity "Storia Perinatale e Pediatrica" {
+  *record_id : string <<generated>>
+  diabete_gestazionale_materno : boolean
+  nascita_pretermine : boolean
+  età_gestazionale : string
+  peso_alla_nascita : string
+  periodo_neonatale : string {Normale,Anormale}
+  anomalie_somatiche : boolean
+  allattamento_al_seno : string {No,< 6 mesi, >= 6 mesi}
+  sviluppo_psicomotorio : string {Normale,Anormale}
+  sviluppo_puberale_precoce : boolean
+  sviluppo_puberale_ritardato : boolean
+  scala_di_tanner : string {I,II,III,IV,V}
+}
+
+entity "Malattie Metaboliche" {
+  *record_id : string <<generated>>
+  malattia_metabolica : boolean
+  diabete_mellito : boolean
+  evento_cv : boolean
+  ipertensione_arteriosa : boolean
+  steatosi_epatica : boolean
+  obesita : boolean
+  sindrome_metabolica : boolean
+  durata_di_malattia_diabete_mellito : string
+  tipo_diabete : string {DMT1,DMT2}
+  diabete_insulino_dipendente : boolean
+  età_evento_cardiovascolare : string
+  durata_di_malattia_ipertensione : string
+  età_esordio_obesità : string {< 5 anni, >= 5 anni}
+  obesità_secondarie : boolean
+}
+
+entity "Danno d'organo (diabete)" {
+  *record_id : string <<generated>>
+  retinopatia_diabetica : boolean
+  nefropatia_diabetica : boolean
+  piede_diabetico : boolean
+  artropatia_diabetica : boolean
+  neuropatia_automatica_o_somatica : boolean
+}
+
+entity "Cardiovascolare" {
+  *record_id : string <<generated>>
+  sindrome_coronarica_acuta : boolean
+  interventi_sistema_cardiovascolare : string
+  ictus_tia : boolean
+  ospedalizzazione_scompenso_cardiaco : boolean
+  morte_causa_cardiovascolare : boolean
+}
+
+entity "Danno d'organo (iperestensione)" {
+  *record_id : string <<generated>>
+  cardiopatia_iperestensiva : boolean
+  nefropatia_iperestensiva : boolean
+  retinopatia_iperestensiva : boolean
+}
+
+entity "Comorbita obesita pediatrica" {
+  *record_id : string <<generated>>
+  sindrome_ovaio_policistico : boolean
+  pseudotumor_cerebri : boolean
+  epifisiolisi_collo_femorale : boolean
+  malattia_di_blount : boolean
+  calcoli_biliari : boolean
+  asma_ricorrente : boolean
+  disturbi_del_sonno : boolean
+}
+
+entity "Malattie Reumatologiche" {
+  *record_id : string <<generated>>
+  diagnosi_malattia_autoimmune : boolean
+  atrite_reumatoide : boolean
+  lupus_eritematoso_sistemico : boolean
+  malattia_still : boolean
+  artrite_idiopatica_giovanile : boolean
+  dermatomiosite : boolean
+  specifica_diagnosi : string
+  età_esordio : string
+  durata_malattia : string
+  danno_malattia : boolean
+}
+
+entity "Indice di danno da malattia" {
+  *record_id : string <<generated>>
+  msk : boolean
+  skin : boolean
+  eye : boolean
+  ent : boolean
+  lung : boolean
+  cvd : boolean
+  pvd : boolean
+  gi : boolean
+  kidney : boolean
+  neuropsych : boolean
+  altro : boolean
+}
+
+entity "Farmaci Antireumatici" {
+  *record_id : string <<generated>>
+  csDMARDs_numero : string{0,1,>=2}
+  b_tsDMARDs_numero : string{0,1,>=2}
+  dose_glucocorticoidi : string
+  attività_di_malattia : string{Inattiva/Remissione,Attiva/Bassa,Attiva/Moderata,Attiva/Elevata}
+}
+
+entity "Malattie Neoplastiche" {
+  *record_id : string <<generated>>
+  diagnosi_neoplasia : boolean
+  età_esordio_neoplasia : string
+  infante : boolean
+  tipo_neoplasia : string
+  rischio_neoplasia : string{non applicabile,standard,medio,alto}
+  stadio_neoplasia : string{I,II,III,IV,N/A}
+}
+
+entity "Terapie e risposta al trattamento" {
+  *record_id : string <<generated>>
+  chemioterapia : boolean
+  radioterapia : boolean
+  immunoterapia : boolean
+  terapia_target : boolean
+  terapia_cellulare : boolean
+  trapianto : boolean
+  inizio_terapia : string
+  termine_terapia : string
+  risposta_trattamento : string
+  tempo_in_remissione : string
+  recidiva_malattia : boolean
+  data_recidiva : string
+  secondo_tumore : boolean
+}
+
+entity "Comorbidità" {
+  *record_id : string <<generated>>
+  tromboembolismo_venoso : boolean
+  insufficienza_renale_cronica : boolean
+  cirrosi_epatica : boolean
+  patologie_psichiatriche : boolean
+  demenze : boolean
+  bpco : boolean
+  asma : boolean
+  insufficienza_respiratoria_cronica : boolean
+  infezioni_croniche : boolean
+  altre_malattie_autoimmuni : boolean
+  atopia : boolean
+}
+
+entity "Performance Status (adulti)" {
+  *record_id : string <<generated>>
+  ecog_status : string{0,1,2,3,5}
+  karnofsky_status : string{100,90,80,70,60,50,40,30,20,10,0}
+}
+
+entity "Performance Status (pediatrici)" {
+  *record_id : string <<generated>>
+  lansky_performance_status : string{100,90,80,70,60,50,40,30,20,10,0}
+}
+
+entity "Follow-Up" {
+  *record_id : string <<generated>>
+  follow_up_partecipante : string{Decesso,Vivo,Perso al follow-up}
+}
+
+entity "Dati Antropometrici e Parametri Vitali" {
+  *record_id : string <<generated>>
+  peso : string
+  altezza : string
+  altezza_sds : string
+  bmi : string
+  bmi_sds : string
+  circonferenza_vita : string
+  pressione_sistolica : string
+  pressione_diastolica : string
+}
+
+entity "Esami di Laboratorio" {
+  *record_id : string <<generated>>
+  hb : string
+  leucociti : string
+  neutrofili : string
+  linfociti : string
+  piastrine : string
+  pcr : string
+  ves : string
+  creatinina : string
+  alt : string
+  ast : string
+  colesterolo_totale : string
+  hdl : string
+  ldl : string
+  trigliceridi : string
+  glicemia_a_digiuno : string
+  hba1c : string
+  acido_urico : string
+  ldh : string
+  componente_monoclonale : string
+  percentuale_blasti : string
+}
+
+entity "Questionario Sociodemografico" {
+  *record_id : string <<generated>>
+  genere_identificazione : string{Donna,Uomo,Non binario,Preferisco non rispondere}
+  nonni_nati_italia : boolean
+  cap_residenza : string
+  istruzione : string{Scuola primaria,Scuola secondaria,Liceo,Laurea,Dottorato}
+  occupazione : string{Studente,Occupato,Disoccupato,Pensionato}
+  convivenza : string{Solo,Coppia,Famiglia d'origine,Altro}
+  cittadinanza : string{Italiana,Paese UE,Paese extra-UE}
+  risorse_finanziarie : string{1,2,3,4,5}
+}
+
+entity "Etnia" {
+  *record_id : string <<generated>>
+  bianco : boolean
+  asiatico : boolean
+  africano : boolean
+  ispanico_e_latino-americano : boolean
+  arabo : boolean
+  misto : boolean
+}
+
+entity "Anamnesi Familiare" {
+  *record_id : string <<generated>>
+  madre : string
+  padre : string
+  fratelli_sorelle : string
+  nonni : string
+  specifica_neoplasia_madre : string
+  specifica_malattia_autoimmune_madre : string
+  specifica_altro_madre : string
+  specifica_neoplasia_padre : string
+  specifica_malattia_autoimmune_padre : string
+  specifica_altro_padre : string
+  specifica_neoplasia_nonni : string
+  specifica_malattia_autoimmune_nonni : string
+  specifica_altro_nonni : string
+}
+
+entity "Anamnesi patologica" {
+  *record_id : string <<generated>>
+  neoplasia : boolean
+  obesita : boolean
+  chirurgia_bariatrica : boolean
+  iperestensione_arteriosa : boolean
+  diabete_mellito : boolean
+  evento_cardiovascolare_minore_65_anni : boolean
+  malattia_autoimmune : boolean
+  altro : boolean
+}
+
+entity "Stile di Vita e Esposizioni" {
+  *record_id : string <<generated>>
+  fumatore : string{Mai fumato,Fumo attivo,Fumo pregresso,Fumo passivo}
+  sigarette_al_giorno : string{<5,6-10,11-20,>=20}
+  anni_fumo : string
+  giorni_attivita_fisica_settimana : string{0,1,2,3,4,5,6,7}
+  manutenzione_edifici : boolean
+  manutenzione_veicoli : boolean
+  saldatura : boolean
+  manutenzione_barche : boolean
+  manutenzione_apparecchi : boolean
+  lavori_falegnameria : boolean
+  orto_giardinaggio : boolean
+  pittura_artistica : boolean
+  utilizzo_smacchiatori : boolean
+  utilizzo_sverniciatori : boolean
+  utilizzo_colle_mastici : boolean
+  utilizzo_solventi : boolean
+  utilizzo_tarlicidi : boolean
+  utilizzo_pesticidi : boolean
+  vicinanza_impianti_chimici : boolean
+  vicinanza_petrolchimico : boolean
+  vicinanza_siderurgia : boolean
+  vicinanza_centrale_elettrica : boolean
+  vicinanza_miniere : boolean
+  vicinanza_area_portuale : boolean
+  presenza_amianto : boolean
+  vicinanza_discarica : boolean
+}
+
+entity "Alimentazione (PREDIMED)" {
+  *record_id : string <<generated>>
+  olio_oliva_uso : boolean
+  olio_oliva_quantita : string{<4 cucchiai,>=4 cucchiai}
+  porzioni_verdura_giorno : string{<2 porzioni,>=2 porzioni}
+  porzioni_frutta_giorno : string{<3,>=3}
+  porzioni_carne_rossa_giorno : string{uno o piu,meno di uno}
+  porzioni_burro_giorno : string{uno o piu,meno di uno}
+  bevande_zuccherate_giorno : string{uno o piu,meno di uno}
+  consumo_vino_settimana : string{>=7 bicchieri,<7 bicchieri}
+  porzioni_legumi_settimana : string{<3,>=3}
+  porzioni_pesce_settimana : string{<3,>=3}
+  dolci_confezionati_settimana : string{<3,>=3}
+  porzioni_frutta_secca_settimana : string{<3,>=3}
+  carne_preferita : boolean
+  porzioni_vegetali_conditi_settimana : string{<2,>=2}
+}
+
+entity "Alimentazione (KIDMED)"{
+  *record_id : string <<generated>>
+  frutta_ogni_giorno : boolean
+  frutta_più_di_una_volta : boolean
+  verdura_ogni_giorno : boolean
+  verdura_più_di_una_volta : boolean
+  porzioni_pesce_settimana : string
+  fast_food_settimana : boolean
+  porzioni_legumi_settimana : string
+  pasta_riso_settimana : boolean
+  cereali_colazione : boolean
+  frutta_secca_2_3_volte_settimana : boolean
+  olio_oliva_condimento : boolean
+  colazione_frequenza_settimana : string
+  latte_yogurt_colazione : boolean
+  merendine_biscotti_colazione : boolean
+  yogurt_formaggio_ogni_giorno : boolean
+  caramelle_dolci_frequenza : boolean
+}
+
+entity "Qualità di Vita EQ-5D-5L" {
+  *record_id : string <<generated>>
+  attività_abituali : string
+}
+
+entity "Qualità di Vita EQ-5D-Y" {
+  *record_id : string <<generated>>
+  movimento : string
+  cura_personale : string
+  attività_giornaliere : string
+}
+
+' Relationship definitions
+"Criteri di Inclusione" ||--o{  "Criteri di Esclusione"
+"Sindromi da Predisposizione Tumorale" ||--o{  "Criteri di Esclusione"
+"Consenso Partecipazione Studio" ||--o{ "Criteri di Inclusione"
+"Arruolamento" ||--o{ "Criteri di Inclusione"
+"Storia Perinatale e Pediatrica" ||--o{ "Arruolamento"
+"Malattie Metaboliche" ||--o{ "Arruolamento"
+"Malattie Reumatologiche" ||--o{"Arruolamento"
+"Farmaci Antireumatici" ||--o{ "Malattie Reumatologiche"
+"Malattie Neoplastiche" ||--o{"Arruolamento"
+"Comorbidità" ||--o{ "Arruolamento"
+"Performance Status (adulti)" ||--o{ "Arruolamento"
+"Performance Status (pediatrici)" ||--o{ "Arruolamento"
+"Follow-Up" ||--o{ "Arruolamento"
+"Dati Antropometrici e Parametri Vitali" ||--o{ "Arruolamento"
+"Esami di Laboratorio" ||--o{ "Arruolamento"
+"Questionario Sociodemografico" ||--o{ "Arruolamento"
+"Anamnesi Familiare" ||--o{ "Arruolamento"
+"Stile di Vita e Esposizioni" ||--o{ "Arruolamento"
+"Alimentazione (PREDIMED)" ||--o{ "Arruolamento"
+"Alimentazione (KIDMED)" ||--o{ "Arruolamento"
+"Qualità di Vita EQ-5D-5L" ||--o{ "Arruolamento"
+"Qualità di Vita EQ-5D-Y" ||--o{ "Arruolamento"
+"Indice di danno da malattia" ||--o{ "Malattie Reumatologiche"
+"Danno d'organo (diabete)" ||--o{ "Malattie Metaboliche"
+"Cardiovascolare" ||--o{ "Malattie Metaboliche"
+"Danno d'organo (iperestensione)" ||--o{ "Malattie Metaboliche"
+"Comorbita obesita pediatrica" ||--o{ "Malattie Metaboliche"
+"Terapie e risposta al trattamento" ||--o{ "Malattie Neoplastiche"
+"Etnia" ||--o{ "Questionario Sociodemografico"
+"Anamnesi patologica" }|--|{ "Anamnesi Familiare"
+@enduml
