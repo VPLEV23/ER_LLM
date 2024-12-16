@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    name="ScoutingSystem"
+    nsPrefix="scout"
+    nsURI="http://www.example.com/scouting">
+
+  <!-- Person Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Person">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firstName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- Player Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Player" eSuperTypes="#//Person">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scoutingStatus" eType="#//ScoutingStatus"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1" eType="#//PlayerAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="profiles" upperBound="-1" eType="#//PlayerProfile"/>
+  </eClassifiers>
+
+  <!-- HeadCoach Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="HeadCoach" eSuperTypes="#//Person">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetPlayerProfile" upperBound="-1" eType="#//PlayerProfile"/>
+  </eClassifiers>
+
+  <!-- Director Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Director" eSuperTypes="#//Person">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="offers" upperBound="-1" eType="#//Offer"/>
+  </eClassifiers>
+
+  <!-- Scout Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Scout" eSuperTypes="#//Person">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scoutKind" eType="#//ScoutKind"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignments" upperBound="-1" eType="#//ScoutingAssignment"/>
+  </eClassifiers>
+
+  <!-- Club Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Club">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scouts" upperBound="-1" eType="#//Scout"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="headCoach" upperBound="1" eType="#//HeadCoach"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="director" upperBound="1" eType="#//Director"/>
+  </eClassifiers>
+
+  <!-- ScoutingAssignment Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="ScoutingAssignment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="player" lowerBound="1" upperBound="1" eType="#//Player"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="report" lowerBound="0" upperBound="1" eType="#//ScoutReport"/>
+  </eClassifiers>
+
+  <!-- ScoutReport Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="ScoutReport">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pro" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="con" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="recommendation" eType="#//Recommendation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nextReport" upperBound="1" eType="#//ScoutReport"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prevReport" upperBound="1" eType="#//ScoutReport"/>
+  </eClassifiers>
+
+  <!-- PlayerProfile Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="PlayerProfile">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" eType="#//Position"/>
+  </eClassifiers>
+
+  <!-- PlayerAttribute Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="PlayerAttribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+
+  <!-- Offer Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Offer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+
+  <!-- Enumerations -->
+  <eClassifiers xsi:type="ecore:EEnum" name="ScoutingStatus">
+    <eLiterals name="LONG_LISTED"/>
+    <eLiterals name="SHORT_LISTED"/>
+    <eLiterals name="RECOMMENDED_FOR_SIGNING"/>
+    <eLiterals name="OFFER_MADE"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EEnum" name="ScoutKind">
+    <eLiterals name="REGULAR_SCOUT"/>
+    <eLiterals name="HEAD_SCOUT"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EEnum" name="Position">
+    <eLiterals name="GK"/>
+    <eLiterals name="LB"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EEnum" name="Recommendation">
+    <eLiterals name="KEY_PLAYER"/>
+    <eLiterals name="FIRST_TEAM_PLAYER"/>
+    <eLiterals name="RESERVE_TEAM_PLAYER"/>
+    <eLiterals name="PROSPECTIVE_PLAYER"/>
+    <eLiterals name="NOT_RECOMMENDED"/>
+  </eClassifiers>
+
+</ecore:EPackage>

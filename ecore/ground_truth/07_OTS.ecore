@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    name="OnlineTutoringSystem"
+    nsPrefix="ots"
+    nsURI="http://www.example.com/ots">
+
+  <!-- Main Classes -->
+  <eClassifiers xsi:type="ecore:EClass" name="OTS">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subjects" lowerBound="0" upperBound="-1" eType="#//Subject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="awards" lowerBound="0" upperBound="-1" eType="#//BestTutorAward"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="users" lowerBound="0" upperBound="-1" eType="#//User"/>
+  </eClassifiers>
+
+  <!-- User Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="User">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="email" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roles" lowerBound="0" upperBound="2" eType="#//TutoringRole"/>
+  </eClassifiers>
+
+  <!-- Subject Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Subject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- TutoringRole Abstract Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="TutoringRole" abstract="true"/>
+
+  <!-- Tutor Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Tutor" eSuperTypes="#//TutoringRole">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bankAccount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="offers" upperBound="-1" eType="#//TutoringOffer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="availabilities" upperBound="-1" eType="#//TutorAvailability"/>
+  </eClassifiers>
+
+  <!-- Student Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Student" eSuperTypes="#//TutoringRole">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requests" upperBound="-1" eType="#//TutoringRequest"/>
+  </eClassifiers>
+
+  <!-- TutoringElement Abstract Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="TutoringElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tutoringLevel" eType="#//LevelOfTutoring" defaultValueLiteral="PrimarySchool"/>
+  </eClassifiers>
+
+  <!-- TutoringRequest Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="TutoringRequest" eSuperTypes="#//TutoringElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subject" lowerBound="1" upperBound="1" eType="#//Subject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="student" lowerBound="1" upperBound="1" eType="#//Student"/>
+  </eClassifiers>
+
+  <!-- TutoringOffer Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="TutoringOffer" eSuperTypes="#//TutoringElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hourlyPrice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tutor" lowerBound="1" upperBound="1" eType="#//Tutor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subject" lowerBound="1" upperBound="1" eType="#//Subject"/>
+  </eClassifiers>
+
+  <!-- TutoringSession Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="TutoringSession">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sessionDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalPrice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sessionStatus" eType="#//SessionStatus" defaultValueLiteral="Proposed"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="firstSession" lowerBound="0" upperBound="1" eType="#//TutoringSession"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nextSession" lowerBound="0" upperBound="1" eType="#//TutoringSession"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="payment" lowerBound="0" upperBound="1" eType="#//Payment"/>
+  </eClassifiers>
+
+  <!-- TutorAvailability Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="TutorAvailability">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ETime"/>
+  </eClassifiers>
+
+  <!-- Payment Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Payment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paymentForm" eType="#//PaymentKind" defaultValueLiteral="CreditCard"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paymentDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+  </eClassifiers>
+
+  <!-- BestTutorAward Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="BestTutorAward">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="year" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="month" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tutor" lowerBound="1" upperBound="1" eType="#//Tutor"/>
+  </eClassifiers>
+
+  <!-- Enumerations -->
+  <eClassifiers xsi:type="ecore:EEnum" name="LevelOfTutoring">
+    <eLiterals name="PrimarySchool"/>
+    <eLiterals name="HighSchool"/>
+    <eLiterals name="University"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EEnum" name="SessionStatus">
+    <eLiterals name="Proposed"/>
+    <eLiterals name="Confirmed"/>
+    <eLiterals name="Completed"/>
+    <eLiterals name="Paid"/>
+    <eLiterals name="Cancelled"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EEnum" name="PaymentKind">
+    <eLiterals name="CreditCard"/>
+    <eLiterals name="WireTransfer"/>
+  </eClassifiers>
+
+</ecore:EPackage>

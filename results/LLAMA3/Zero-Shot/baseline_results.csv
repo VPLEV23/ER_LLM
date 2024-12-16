@@ -1,0 +1,730 @@
+File,Parameters,Cosine Similarity,Text Cosine Similarity,BERT F1,Generated Output
+10_HBMS.docx,Baseline,0.66817504,0.4010045968371526,0.795991837978363,"**Entity definitions and relationships**
+```ecore
+package hotel_booking_management_system;
+
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+
+public class HotelBookingManagementSystemPackage extends EPackage {
+
+	public static final String eNAME = ""hotel_booking_management_system"";
+
+	public static final EClass TRAVELLER = eClass(""Traveller"", ""Traveller"", 2,!eStatic,!eClass,!eStructuralFeature);
+	{
+		EAttribute name = eAttribute(TRAVELLER, ecore::EString, ""name"", 1, 1,!eStatic,!eDerived);
+		EAttribute billingInformation = eAttribute(TRAVELLER, ecore::EString, ""billingInformation"", 1, 1,!eStatic,!eDerived);
+		EAttribute travelPreferences = eAttribute(TRAVELLER, ecore::EString, ""travelPreferences"", 0, 1,!eStatic,!eDerived);
+	}
+
+	public static final EClass HOTEL = eClass(""Hotel"", ""Hotel"", 3,!eStatic,!eClass,!eStructuralFeature);
+	{
+		EAttribute name = eAttribute(HOTEL, ecore::EString, ""name"", 1, 1,!eStatic,!eDerived);
+		EAttribute address = eAttribute(HOTEL, ecore::EString, ""address"", 1, 1,!eStatic,!eDerived);
+		EAttribute hotelChain = eAttribute(HOTEL, ecore::EString, ""hotelChain"", 0, 1,!eStatic,!eDerived);
+	}
+
+	public static final EClass BOOKING = eClass(""Booking"", ""Booking"", 3,!eStatic,!eClass,!eStructuralFeature);
+	{
+		EAttribute price = eAttribute(BOOKING, ecore::EInt, ""price"", 1, 1,!eStatic,!eDerived);
+		EAttribute cityArea = eAttribute(BOOKING, ecore::EString, ""cityArea"", 1, 1,!eStatic,!eDerived);
+		EAttribute hotelRating = eAttribute(BOOKING, ecore::EInt, ""hotelRating"", 1, 1,!eStatic,!eDerived);
+		EAttribute travelPreferences = eAttribute(BOOKING, ecore::EString, ""travelPreferences"", 0, 1,!eStatic,!eDerived);
+		EAttribute bookingIdentifier = eAttribute(BOOKING, ecore::EString, ""bookingIdentifier"", 1, 1,!eStatic,!eDerived);
+		EAttribute creditCardInformation = eAttribute(BOOKING, ecore::EString, ""creditCardInformation"", 1, 1,!eStatic,!eDerived);
+		EAttribute paymentMethod = eAttribute(BOOKING, ecore::EString, ""paymentMethod"", 1, 1,!eStatic,!eDerived);
+		EAttribute cancellationDeadline = eAttribute(BOOKING, ecore::EInt, ""cancellationDeadline"", 0, 1,!eStatic,!eDerived);
+	}
+
+	public static final EClass PRELIMINARY_BOOKING = eClass(""PreliminaryBooking"", ""PreliminaryBooking"", 3,!eStatic,!eClass,!eStructuralFeature);
+	{
+		EAttribute price = eAttribute(PRELIMINARY_BOOKING, ecore::EInt, ""price"", 1, 1,!eStatic,!eDerived);
+		EAttribute cityArea = eAttribute(PRELIMINARY_BOOKING, ecore::EString, ""cityArea"", 1, 1,!eStatic,!eDerived);
+		EAttribute hotelRating = eAttribute(PRELIMINARY_BOOKING, ecore::EInt, ""hotelRating"", 1, 1,!eStatic,!eDerived);
+		EAttribute travelPreferences = eAttribute(PRELIMINARY_BOOKING, ecore::EString, ""travelPreferences"", 0, 1,!eStatic,!eDerived);
+		EAttribute bookingIdentifier = eAttribute(PRELIMINARY_BOOKING, ecore::EString, ""bookingIdentifier"", 1, 1,!eStatic,!eDerived);
+		EAttribute creditCardInformation = eAttribute(PRELIMINARY_BOOKING, ecore::EString, ""creditCardInformation"", 0, 1,!eStatic,!eDerived);
+		EAttribute paymentMethod = eAttribute(PRELIMINARY_BOOKING, eCore::EString, ""paymentMethod"", 0, 1,!eStatic,"
+07_OTS.docx,Baseline,0.7286991,0.4209011623250415,0.8745702505111694,"<?xml version=""1.0"" encoding=""UTF-8""?>
+<ecore:EObject xmi:version=""2.0"" xmlns:xmi=""http://www.omg.org/XMI"" xmlns:ots=""http://www.example.org/ots.ecore"" xmlns:ecore=""http://www.eclipse.org/emf/2002/Ecore"">
+    <ots:Registration>
+        <ots:name xmi:type=""ecore:EString""/>
+        <ots:email xmi:type=""ecore:EString""/>
+        <ots:bankAccount xmi:type=""ecore:EString""/>
+        <ots:tutoringOffers xmi:type=""ecore:EList"" containment=""true"">
+            <ots:TutoringOffer xmi:id=""TutoringOffer_1"" name=""Mathematics""/>
+            <ots:TutoringOffer xmi:id=""TutoringOffer_2"" name=""Science""/>
+        </ots:tutoringOffers>
+    </ots:Registration>
+    <ots:Student>
+        <ots:name xmi:type=""ecore:EString""/>
+        <ots:email xmi:type=""ecore:EString""/>
+        <ots:tutoringRequests xmi:type=""ecore:EList"" containment=""true"">
+            <ots:TutoringRequest xmi:id=""TutoringRequest_1"" level=""Primary""/>
+            <ots:TutoringRequest xmi:id=""TutoringRequest_2"" level=""High School""/>
+        </ots:tutoringRequests>
+    </ots:Student>
+    <ots:Tutor>
+        <ots:name xmi:type=""ecore:EString""/>
+        <ots:email xmi:type=""ecore:EString""/>
+        <ots:bankAccount xmi:type=""ecore:EString""/>
+        <ots:tutoringOffers xmi:type=""ecore:EList"" containment=""true"">
+            <ots:TutoringOffer xmi:id=""TutoringOffer_3"" name=""Literature""/>
+            <ots:TutoringOffer xmi:id=""TutoringOffer_4"" name=""University Level""/>
+        </ots:tutoringOffers>
+        <ots:weeklyAvailability xmi:type=""ecore:EString""/>
+    </ots:Tutor>
+    <ots:TutoringOffer>
+        <ots:name xmi:type=""ecore:EString""/>
+        <ots:subject xmi:type=""ecore:EString""/>
+        <ots:level xmi:type=""ecore:EString""/>
+        <ots:hourlyPrice xmi:type=""ecore:EString""/>
+        <ots:tutor xmi:type=""ecore:EReference"" container=""true"" opposite=""Tutor.tutoringOffers""/>
+    </ots:TutoringOffer>
+    <ots:TutoringRequest>
+        <ots:level xmi:type=""ecore:EString""/>
+        <ots:targetDate xmi:type=""ecore:EString""/>
+        <ots:targetTime xmi:type=""ecore:EString""/>
+        <ots:tutoringOffer xmi:type=""ecore:EReference"" container=""true"" opposite=""TutoringOffer.tutoringRequests""/>
+        <ots:student xmi:type=""ecore:EReference"" container=""true"" opposite=""Student.tutoringRequests""/>
+    </ots:TutoringRequest>
+    <ots:TutoringSession>
+        <ots:student xmi:type=""ecore:EReference"" container=""true"" opposite=""Student.tutoringSessions""/>
+        <ots:tutor xmi:type=""ecore:EReference"" container=""true"" opposite=""Tutor.tutoringSessions""/>
+        <ots:targetDate xmi:type=""ecore:EString""/>
+        <ots:targetTime xmi:type=""ecore:EString""/>
+        <ots:hourlyPrice xmi:type=""ecore:EString""/>
+        <ots:paymentMethod xmi:type=""ecore:EString""/>
+        <ots:sessionStatus xmi:type=""ecore:EString""/>
+        <ots:cancellationFee xmi:type=""ecore:EString""/>
+        <ots:discount xmi:type=""ecore:EString""/>
+    </ots:TutoringSession>
+    <ots:BankAccount>
+        <ots:accountNumber xmi:type=""ecore:EString""/>
+        <ots:accountHolder xmi:type=""ecore:EString""/>
+    </ots:BankAccount>
+    <ots:TutorOfTheMonth>
+        <ots:subject xmi:type=""ecore:EString""/>
+        <ots:tutor xmi:type=""ecore:EReference"" container=""true"" opposite=""Tutor.tutorOfTheMonth""/>
+        <ots:month xmi:type=""ecore:EString""/>
+    </ots:TutorOfTheMonth>
+</ecore:EObject>"
+06_SHAS.docx,Baseline,0.77477235,0.3083409901970661,0.8626474738121033,"```
+
+
+
+```
+<?xml version=""1.0"" encoding=""UTF-8""?>
+<ecore:EPackage xmi:version=""2.0"" namespaceURI=""http://smartHomeAutomationSystem"" name=""SmartHomeAutomationSystem"" nsURI=""http://smartHomeAutomationSystem"" nsPrefix=""SmartHomeAutomationSystem"">
+  <eClassifiers xmi:id=""_xg1cZ8kEeEa"" name=""SHAS"" abstract=""false"" interface=""false"" isAbstract=""false"" instanceClassName=""SHAS"">
+    <eStructuralFeatures xmi:id=""_xg1cZ8kEeEa_1"" name=""smartHome"" eType=""#_xg1cZ8kEeEa_2"" upperBound=""0"" lowerBound=""1"" unique=""false"" ordered=""false"" containment=""false""/>
+    <eStructuralFeatures xmi:id=""_xg1cZ8kEeEa_2"" name=""users"" eType=""#_xg1cZ8kEeEa_3"" upperBound=""-1"" lowerBound=""0"" unique=""false"" ordered=""false"" containment=""false""/>
+  </eClassifiers>
+  <eClassifiers xmi:id=""_xg1cZ8kEeEa_3"" name=""SmartHome"" abstract=""false"" interface=""false"" isAbstract=""false"" instanceClassName=""SmartHome"">
+    <eStructuralFeatures xmi:id=""_xg1cZ8kEeEa_4"" name=""address"" eType=""#_xg1cZ8kEeEa_5"" upperBound=""0"" lowerBound=""1"" unique=""false"" ordered=""false"" containment=""false""/>
+    <eStructuralFeatures xmi:id=""_xg1cZ8kEeEa_5"" name=""rooms"" eType=""#_xg1cZ8kEeEa_6"" upperBound=""-1"" lowerBound=""0"" unique=""false"" ordered=""false"" containment=""false""/>
+    <eStructuralFeatures xmi:id=""_xg1cZ8kEeEa_6"" name=""log"" eType=""#_xg1cZ8kEeEa_7"" upperBound=""0"" lowerBound=""1"" unique=""false"" ordered=""false"" containment=""false""/>
+    <eStructuralFeatures xmi:id=""_xg1cZ8kEeEa_7"" name=""owners"" eType=""#_xg1cZ8kEeEa_8"" upperBound=""-1"" lowerBound=""0"" unique=""false"" ordered=""false"" containment=""false""/>
+  </eClassifiers>
+  <eClassifiers xmi:id=""_xg1cZ8kEeEa_8"" name=""User"" abstract=""false"" interface=""false"" isAbstract=""false"" instanceClassName=""User"">
+    <eStructuralFeatures xmi:id=""_xg1cZ8kEeEa_9"" name=""name"" eType=""http://www.w3.org/2001/XMLSchema#string"" upperBound=""0"" lowerBound=""1"" unique=""false"" ordered=""false"" containment=""false""/>
+  </eClassifiers>
+  <eClassifiers xmi:id=""_xg1cZ8kEeEa_10"" name=""Address"" abstract=""false"" interface=""false"" isAbstract=""false"" instanceClassName=""Address"">
+    <eStructuralFeatures xmi:id=""_xg1cZ8kEeEa_11"" name=""address"" eType=""http://www.w3.org/2001/XMLSchema#string"" upperBound=""0"" lowerBound=""1"" unique=""false"" ordered=""false"" containment=""false""/>
+  </eClassifiers>
+  <eClassifiers xmi:id=""_xg1cZ8kEeEa_12"" name=""Room"" abstract=""false"" interface=""false"" isAbstract=""false"" instanceClassName=""Room"">
+    <eStructuralFeatures xmi:id=""_xg1cZ8kEeEa_13"" name=""sensors"" eType=""#_xg1cZ8kEeEa_14"" upperBound=""-1"" lowerBound=""0"" unique=""false"" ordered=""false"" containment=""false""/>
+    <eStructuralFeatures xmi:id=""_xg1cZ8kEeEa_14"" name=""actuators"" eType=""#_xg1cZ8kEeEa_15"" upperBound=""-1"" lowerBound=""0"" unique=""false"" ordered=""false"" containment=""false""/>
+  </eClassifiers>
+  <eClassifiers xmi:id=""_xg1cZ8kEeE"
+01_BTMS.docx,Baseline,0.62042594,0.18902485300768618,0.7885132431983948,"```java
+package com.example.bts;
+
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+
+public class BTMS {
+	public static class City extends EObject {
+		public static EClass CITY = eClass();
+		public static EAttribute CITY_ID = eAttribute(CITY, ""id"", EInt.INSTANCE, EString.INSTANCE, ""required"");
+		public static EAttribute CITY_NAME = eAttribute(CITY, ""name"", EString.INSTANCE, EString.INSTANCE, ""required"");
+
+		public static EClass DRIVER = eClass();
+		public static EAttribute DRIVER_ID = eAttribute(DRIVER, ""id"", EInt.INSTANCE, EString.INSTANCE, ""required"");
+		public static EAttribute DRIVER_NAME = eAttribute(DRIVER, ""name"", EString.INSTANCE, EString.INSTANCE, ""required"");
+		public static EAttribute DRIVER_ON_SICK_LEAVE = eAttribute(DRIVER, ""onSickLeave"", EBoolean.INSTANCE, EBoolean.INSTANCE, ""optional"");
+
+		public static EClass BUS = eClass();
+		public static EAttribute BUS_ID = eAttribute(BUS, ""id"", EInt.INSTANCE, EString.INSTANCE, ""required"");
+		public static EAttribute BUS_LICENSE_PLATE = eAttribute(BUS, ""licensePlate"", EString.INSTANCE, EString.INSTANCE, ""required"");
+		public static EAttribute BUS_IN_REPAIR_SHOP = eAttribute(BUS, ""inRepairShop"", EBoolean.INSTANCE, EBoolean.INSTANCE, ""optional"");
+
+		public static EClass ROUTE = eClass();
+		public static EAttribute ROUTE_ID = eAttribute(ROUTE, ""id"", EInt.INSTANCE, EString.INSTANCE, ""required"");
+		public static EAttribute ROUTE_NUMBER = eAttribute(ROUTE, ""number"", EInt.INSTANCE, EInt.INSTANCE, ""required"");
+		public static EAttribute ROUTE_MAX_NUMBER = eAttribute(ROUTE, ""maxNumber"", EInt.INSTANCE, EInt.INSTANCE, ""required"");
+
+		public static EClass SHIFT = eClass();
+		public static EAttribute SHIFT_ID = eAttribute(SHIFT, ""id"", EInt.INSTANCE, EString.INSTANCE, ""required"");
+		public static EAttribute SHIFT_NAME = eAttribute(SHIFT, ""name"", EString.INSTANCE, EString.INSTANCE, ""required"");
+
+		public static EClass SCHEDULE = eClass();
+		public static EAttribute SCHEDULE_ID = eAttribute(SCHEDULE, ""id"", EInt.INSTANCE, EString.INSTANCE, ""required"");
+		public static EAttribute SCHEDULE_DATE = eAttribute(SCHEDULE, ""date"", EString.INSTANCE, EString.INSTANCE, ""required"");
+		public static EAttribute SCHEDULE_SHIFT = eAttribute(SCHEDULE, ""shift"", EReference.INSTANCE, SHIFT.class, ""required"");
+
+		public static EClass ASSIGNMENT = eClass();
+		public static EAttribute ASSIGNMENT_ID = eAttribute(ASSIGNMENT, ""id"", EInt.INSTANCE, EString.INSTANCE, ""required"");
+		public static EAttribute ASSIGNMENT_DATE = eAttribute(ASSIGNMENT, ""date"", EString.INSTANCE, EString.INSTANCE, ""required"");
+		public static EAttribute ASSIGNMENT_BUS = eAttribute(ASSIGNMENT, ""bus"", EReference.INSTANCE, BUS.class, ""required"");
+		public static EAttribute ASSIGNMENT_ROUTE = eAttribute(ASSIGNMENT, ""route"", EReference.INSTANCE, ROUTE.class, ""required"");
+		public static EAttribute ASSIGNMENT_DRIVER = eAttribute(ASSIGNMENT, ""driver"", EReference.INSTANCE, DRIVER.class, ""required"");
+		public static EAttribute ASSIGNMENT_SHIFT = eAttribute(ASSIGNMENT, ""shift"", EReference.INSTANCE, SHIFT.class, ""required"");
+
+		public static EClass OVERVIEW = eClass();
+		public static EAttribute OVERVIEW_ID = eAttribute(OVERVIEW, ""id"", EInt.INSTANCE, EString.INSTANCE, ""required"");
+		public static EAttribute OVERVIEW_DATE = eAttribute(OVERVIEW, ""date"", EString.INSTANCE, EString.INSTANCE, ""required"");
+		public static EAttribute OVERVIEW_ROUTE = eAttribute(OVERVIEW, ""route"", EReference.INSTANCE, ROUTE.class, ""required"");
+		public static EAttribute OVERVIEW_BUS = eAttribute(OVERVIEW, ""bus"", EReference.INSTANCE, BUS.class, ""required"");
+		public static EAttribute OVERVIEW_DRIVER = eAttribute(OVERVIEW, ""driver"", EReference.INSTANCE, DRIVER.class, ""required"");
+		public static EAttribute OVERVIEW_SHIFT = eAttribute(OVERVIEW, ""shift"", EReference.INSTANCE, SHIFT.class, ""required"");
+		public static EAttribute OVERVIEW_ON_SICK_LEAVE = eAttribute(OVERVIEW, ""onSickLeave"", EBoolean.INSTANCE, EBoolean.INSTANCE, ""optional"");
+		public static EAttribute OVERVIEW_IN_REPAIR_SHOP = eAttribute(OVERVIEW, ""inRepairShop"", EBoolean"
+03_LabTracker.docx,Baseline,0.7230854,0.7536396031203485,0.8963555693626404,"```
+.ecore
+<?xml version=""1.0"" encoding=""UTF-8""?>
+<ecore:EPackage xmi:version=""2.0"" namespaceURI=""http://labrequisitionmanagementsystem.ecore"" name=""LabRequisitionManagementSystem"">
+  <eClassifiers xmi:type=""ecore:EClass"" name=""Doctor"">
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""practitionerNumber"" type=""ecore:EInt"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""signature"" type=""ecore:EString"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""fullName"" type=""ecore:EString"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""address"" type=""ecore:EString"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""phoneNumber"" type=""ecore:EString"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""validFromDate"" type=""ecore:EDate"" />
+  </ecore:EClass>
+  <eClassifiers xmi:type=""ecore:EClass"" name=""Patient"">
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""healthNumber"" type=""ecore:EString"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""firstName"" type=""ecore:EString"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""lastName"" type=""ecore:EString"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""dateOfBirth"" type=""ecore:EDate"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""address"" type=""ecore:EString"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""phoneNumber"" type=""ecore:EString"" />
+  </ecore:EClass>
+  <eClassifiers xmi:type=""ecore:EClass"" name=""Requisition"">
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""doctor"" type=""ecore:EObject"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""patient"" type=""ecore:EObject"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""tests"" type=""ecore:EObject"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""validFromDate"" type=""ecore:EDate"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""repetitionPattern"" type=""ecore:EString"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""appointment"" type=""ecore:EObject"" />
+  </ecore:EClass>
+  <eClassifiers xmi:type=""ecore:EClass"" name=""Test"">
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""testName"" type=""ecore:EString"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""duration"" type=""ecore:EInt"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""isWalkIn"" type=""ecore:EBoolean"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""isSampleDropOff"" type=""ecore:EBoolean"" />
+  </ecore:EClass>
+  <eClassifiers xmi:type=""ecore:EClass"" name=""Lab"">
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""address"" type=""ecore:EString"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""businessHours"" type=""ecore:EString"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""registrationNumber"" type=""ecore:EString"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""fee"" type=""ecore:EInt"" />
+  </ecore:EClass>
+  <eClassifiers xmi:type=""ecore:EClass"" name=""Appointment"">
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""confirmationNumber"" type=""ecore:EString"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""date"" type=""ecore:EDate"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""startTime"" type=""ecore:ETime"" />
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""endTime"" type=""ecore"
+04_CelO.docx,Baseline,0.57372403,0.40826064304838683,0.8548328876495361,".ecore file (below)
+
+<?xml version=""1.0"" encoding=""UTF-8""?>
+<ecore:EObject ecore:version=""1.0"" xmi:version=""2.0"" xmlns:celo=""http://www.example.org/celo.ecore"" xmlns:xmi=""http://www.omg.org/XMI"">
+  <celo:Organization xmi:id=""_Organization_1"">
+    <name xmi:type=""celo:EString"">John Doe</name>
+    <email xmi:type=""celo:EString"">john.doe@example.org</email>
+    <password xmi:type=""celo:EString"">mysecretpassword</password>
+    <postalAddress xmi:type=""celo:EString"">123 Main St</postalAddress>
+    <phoneNumber xmi:type=""celo:EString"">123-456-7890</phoneNumber>
+  </celo:Organization>
+  <celo:Event xmi:id=""_Event_1"">
+    <name xmi:type=""celo:EString"">Birthday Party</name>
+    <startDate xmi:type=""celo:EDate"">2022-01-01</startDate>
+    <endDate xmi:type=""celo:EDate"">2022-01-01</endDate>
+    <occasion xmi:type=""celo:EString"">Birthday</occasion>
+    <location xmi:type=""celo:EString"">Home</location>
+  </celo:Event>
+  <celo:Attendee xmi:id=""_Attendee_1"">
+    <firstName xmi:type=""celo:EString"">Jane</firstName>
+    <lastName xmi:type=""celo:EString"">Doe</lastName>
+    <email xmi:type=""celo:EString"">jane.doe@example.org</email>
+    <attendanceStatus xmi:type=""celo:EString"">Confirmed</attendanceStatus>
+  </celo:Attende>
+  <celo:Event_Organizer xmi:id=""_Event_Organizer_1"" role=""Organizer"">
+    <event xmi:type=""celo:Event"" href=""http://www.example.org/celo.ecore#_Event_1""/>
+    <organization xmi:type=""celo:Organization"" href=""http://www.example.org/celo.ecore#_Organization_1""/>
+  </celo:Event_Organizer>
+  <celo:Event_Attendee xmi:id=""_Event_Attendee_1"" role=""Attendee"">
+    <event xmi:type=""celo:Event"" href=""http://www.example.org/celo.ecore#_Event_1""/>
+    <attendee xmi:type=""celo:Attendee"" href=""http://www.example.org/celo.ecore#_Attendee_1""/>
+  </celo:Event_Attendee>
+  <celo:Event_Task xmi:id=""_Event_Task_1"" role=""Task"">
+    <event xmi:type=""celo:Event"" href=""http://www.example.org/celo.ecore#_Event_1""/>
+    <task xmi:type=""celo:Task"" href=""http://www.example.org/celo.ecore#_Task_1""/>
+  </celo:Event_Task>
+  <celo:Task xmi:id=""_Task_1"">
+    <name xmi:type=""celo:EString"">Bring Birthday Cake</name>
+    <isDone xmi:type=""celo:EBoolean"">false</isDone>
+    <isDesignated xmi:type=""celo:EBoolean"">true</isDesignated>
+  </celo:Task>
+  <celo:Task_Attendee xmi:id=""_Task_Attendee_1"" role=""Assignee"">
+    <task xmi:type=""celo:Task"" href=""http://www.example.org/celo.ecore#_Task_1""/>
+    <attendee xmi:type=""celo:Attendee"" href=""http://www.example.org/celo.ecore#_Attendee_1""/>
+  </celo:Task_Attendee>
+</ecore:EObject>
+
+<?xml version=""1.0"" encoding=""UTF-8""?>
+<ecore:Package ecore:version=""1.0"" xmi:version=""2.0"" xmlns:celo=""http://www.example.org/celo.ecore"" name=""Celo"" namespaceURI=""http://www.example.org/celo.ecore"">
+  <eClassifiers xmi:type=""ecore:EClass"" name=""Organization"">
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""name"" type=""celo:EString""/>
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" name=""email"" type=""celo:EString""/>
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" type=""celo:EString"" name=""password""/>
+    <eStructuralFeatures xmi:type=""ecore:EAttribute"" type=""celo:EString"" name=""postalAddress""/>
+    <e"
+09_TileO.docx,Baseline,0.7456002,0.520495980535621,0.8764762282371521,"Here is the EMF-compatible code for the entities, attributes, and relationships identified in the text:
+
+```
+<?xml version=""1.0"" encoding=""UTF-8""?>
+<ecore:EPackage xmi:version=""2.0"" xmlns:xmi=""http://www.omg.org/XMI"" xmlns:ecore=""http://www.eclipse.org/emf/2002/Ecore"" name=""Tile-O Game"" nsURI=""http://Tile-O Game"" nsPrefix=""Tile-O Game"">
+  <eClassifiers xmi:id=""_xZ1r4s7eEe"" name=""Game"" abstract=""false"">
+    <eStructuralFeatures xmi:id=""_xZ1r4s7eEe__1"" name=""board"" type=""Board"" upperBound=""1"" lowerBound=""1""/>
+    <eStructuralFeatures xmi:id=""_xZ1r4s7eEe__2"" name=""designer"" type=""Designer"" upperBound=""1"" lowerBound=""1""/>
+  </eClassifiers>
+  <eClassifiers xmi:id=""_xZ1r4s7eEe__3"" name=""Designer"" abstract=""false"">
+    <eStructuralFeatures xmi:id=""_xZ1r4s7eEe__3__1"" name=""tiles"" type=""Tile"" lowerBound=""1""/>
+    <eStructuralFeatures xmi:id=""_xZ1r4s7eEe__3__2"" name=""connectionPieces"" type=""ConnectionPiece"" lowerBound=""1""/>
+    <eStructuralFeatures xmi:id=""_xZ1r4s7eEe__3__3"" name=""hiddenTile"" type=""Tile"" lowerBound=""1""/>
+    <eStructuralFeatures xmi:id=""_xZ1r4s7eEe__3__4"" name=""startingPositions"" type=""PlayerPosition"" lowerBound=""1""/>
+    <eStructuralFeatures xmi:id=""_xZ1r4s7eEe__3__5"" name=""actionTiles"" type=""Tile"" lowerBound=""1""/>
+    <eStructuralFeatures xmi:id=""_xZ1r4s7eEe__3__6"" name=""actionCards"" type=""ActionCard"" lowerBound=""32""/>
+  </eClassifiers>
+  <eClassifiers xmi:id=""_xZ1r4s7eEe__4"" name=""Board"" abstract=""false"">
+    <eStructuralFeatures xmi:id=""_xZ1r4s7eEe__4__1"" name=""tiles"" type=""Tile"" lowerBound=""1""/>
+  </eClassifiers>
+  <eClassifiers xmi:id=""_xZ1r4s7eEe__5"" name=""Tile"" abstract=""false"">
+    <eStructuralFeatures xmi:id=""_xZ1r4s7eEe__5__1"" name=""color"" type=""EString"" upperBound=""1"" lowerBound=""1""/>
+    <eStructuralFeatures xmi:id=""_xZ1r4s7eEe__5__2"" name=""connectedTiles"" type=""Tile"" lowerBound=""0"" upperBound=""4""/>
+  </eClassifiers>
+  <eClassifiers xmi:id=""_xZ1r4s7eEe__6"" name=""ConnectionPiece"" abstract=""false"">
+    <eStructuralFeatures xmi:id=""_xZ1r4s7eEe__6__1"" name=""location"" type=""EString"" upperBound=""1"" lowerBound=""1""/>
+  </eClassifiers>
+  <eClassifiers xmi:id=""_xZ1r4s7eEe__7"" name=""PlayerPosition"" abstract=""false"">
+    <eStructuralFeatures xmi:id=""_xZ1r4s7eEe__7__1"" name=""playerNumber"" type=""EInt"" upperBound=""1"" lowerBound=""1""/>
+    <eStructuralFeatures xmi:id=""_xZ1r4s7eEe__7__2"" name=""tileNumber"" type=""EInt"" upperBound=""1"" lowerBound=""1""/>
+  </eClassifiers>
+  <eClassifiers xmi:id=""_xZ1r4s7eEe__8"" name=""ActionCard"" abstract=""false"">
+    <eStructuralFeatures xmi:id=""_xZ1r4s7eEe__8__1"" name=""actionType"" type=""EString"" upperBound=""1"" lowerBound=""1""/>
+    <eStructuralFeatures xmi:id=""_xZ1r4s7eEe__8__2"" name=""effect"" type=""EString"" upperBound=""1"" lowerBound=""1""/>
+  </eClassifiers>"
+02_H2S.docx,Baseline,0.57724273,0.13463798759688295,0.7705022692680359,"```ecore
+package helpinghands;
+
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+
+public class helpinghandsPackage extends EPackage {
+
+		private helpinghandsPackage() {
+			super(""helpinghands"", ""helpinghands"", ""0.1"", ""http://helpinghands/0.1"");
+			containsBasicMetamodel();
+		}
+
+		public EClass getResident() {
+			return resident;
+		}
+
+		public EClass getVolunteerDriver() {
+			return volunteerDriver;
+		}
+
+		public EClass getH2SLocation() {
+			return h2sLocation;
+		}
+
+		public EClass getVehicle() {
+			return vehicle;
+		}
+
+		public EClass getPickupRoute() {
+			return pickupRoute;
+		}
+
+		public EClass getPickup() {
+			return pickup;
+		}
+
+		public EClass getArticle() {
+			return article;
+		}
+
+		public EClass getH2SEmployee() {
+			return h2sEmployee;
+		}
+
+		public EClass getDistributionCenter() {
+			return distributionCenter;
+		}
+
+		public EClass getFoodBank() {
+			return foodBank;
+		}
+
+		public EClass getH2S() {
+			return h2s;
+		}
+
+		public EClass getCity() {
+			return city;
+		}
+
+		public EClass getDelivery() {
+			return delivery;
+		}
+
+		public EClass getClient() {
+			return client;
+		}
+
+		public EClass getRFID() {
+			return RFID;
+		}
+
+		public EClass getTag() {
+			return tag;
+		}
+
+		public EClass getStandardCategory() {
+			return standardCategory;
+		}
+
+		public EClass getNonPerishableFood() {
+			return nonPerishableFood;
+		}
+
+		public EClass getSecondHandArticle() {
+			return secondHandArticle;
+		}
+
+		public EClass getStreetAddress() {
+			return streetAddress;
+		}
+
+		public EClass getPhone() {
+			return phone;
+		}
+
+		public EClass getPhoneType() {
+			return phoneType;
+		}
+
+		public EClass getPickupRequest() {
+			return pickupRequest;
+		}
+
+		public EClass getTagCategory() {
+			return tagCategory;
+		}
+
+		public EClass getTagArticle() {
+			return tagArticle;
+		}
+
+		public EClass getTagRFID() {
+			return tagRFID;
+		}
+
+		public EClass getTagStandardCategory() {
+			return tagStandardCategory;
+		}
+
+		public EClass getTagSecondHandArticle() {
+			return tagSecondHandArticle;
+		}
+
+		public EClass getTagNonPerishableFood() {
+			return tagNonPerishableFood;
+		}
+
+		public EClass getTagDelivery() {
+			return tagDelivery;
+		}
+
+		public EClass getTagClient() {
+			return tagClient;
+		}
+
+		public EClass getTagH2S() {
+			return tagH2S;
+		}
+
+		public EClass getTagH2SLocation() {
+			return tagH2SLocation;
+		}
+
+		public EClass getTagVehicle() {
+			return tagVehicle;
+		}
+
+		public EClass getTagPickupRoute() {
+			return tagPickupRoute;
+		}
+
+		public EClass getTagPickup() {
+			return tagPickup;
+		}
+
+		public EClass getTagArticle() {
+			return tagArticle;
+		}
+
+		public EClass getTagH2SEmployee() {
+			return tagH2SEmployee;
+		}
+
+		public EClass getTagDistributionCenter() {
+			return tagDistributionCenter;
+		}
+
+		public EClass getTagFoodBank() {
+			return tagFoodBank;
+		}
+
+		public EClass getTagCity() {
+			return tagCity;
+		}
+
+		public EClass getTagClient() {
+			return tagClient;
+		}
+
+		public EClass getTagRFID() {
+			return tagRFID;
+		}
+
+		public EClass getTagTag() {
+			return tagTag;
+		}
+
+		public EClass getTagStandardCategory() {
+			return tagStandardCategory;
+		}
+
+		public EClass getTagSecondHandArticle() {
+			return tagSecondHandArticle;
+		}
+
+		public EClass getTagNonPerishableFood() {
+			return tagNonPerishableFood;
+		}
+
+		public EClass getTagDelivery() {
+			return tagDelivery;
+		}
+
+		public EClass getTagH2S() {
+			return tagH2S;
+		}
+
+		public EClass getTagH2SLocation() {
+			return"
+05_TSS.docx,Baseline,0.7515705,0.5991259727714112,0.8710606098175049,"```xml
+<?xml version=""1.0"" encoding=""UTF-8""?>
+<ecore:Resource xmlns:ecore=""http://www.eclipse.org/emf/2002/Ecore""
+    xmi:version=""2.0""
+    xmlns:xmi=""http://www.omg.org/XMI""
+    xmi:id=""TeamSportsScoutingSystem"">
+  <ecore:EPackage xmi:id=""TeamSportsScoutingSystem""
+      namespaceURI=""http://team-sports-scouting-system""
+      name=""TeamSportsScoutingSystem"">
+    <ecore:EPackage.metaClassRef ecore:reference=""EcorePackage""/>
+    <ecore:EPackage.eClassifiers>
+      <ecore:EClass xmi:id=""Employee""
+          name=""Employee""
+          abstract=""false""
+          instanceClassName=""Employee"">
+        <ecore:EClass.eStructuralFeatures>
+          <ecore:EAttribute xmi:id=""id""
+              name=""id""
+              eType=""EInt""
+              lowerBound=""1""
+              upperBound=""1""/>
+          <ecore:EAttribute xmi:id=""name""
+              name=""name""
+              eType=""EString""
+              lowerBound=""1""
+              upperBound=""1""/>
+          <ecore:EAttribute xmi:id=""role""
+              name=""role""
+              eType=""EString""
+              lowerBound=""1""
+              upperBound=""1""/>
+        </ecore:EClass.eStructuralFeatures>
+      </ecore:EClass>
+      <ecore:EClass xmi:id=""PlayerProfile""
+          name=""PlayerProfile""
+          abstract=""false""
+          instanceClassName=""PlayerProfile"">
+        <ecore:EClass.eStructuralFeatures>
+          <ecore:EAttribute xmi:id=""id""
+              name=""id""
+              eType=""EInt""
+              lowerBound=""1""
+              upperBound=""1""/>
+          <ecore:EAttribute xmi:id=""name""
+              name=""name""
+              eType=""EString""
+              lowerBound=""1""
+              upperBound=""1""/>
+          <ecore:EAttribute xmi:id=""targetPosition""
+              name=""targetPosition""
+              eType=""EString""
+              lowerBound=""1""
+              upperBound=""1""/>
+          <ecore:EAttribute xmi:id=""playerAttributes""
+              name=""playerAttributes""
+              eType=""PlayerAttribute""
+              lowerBound=""0""
+              upperBound=""*""/>
+        </ecore:EClass.eStructuralFeatures>
+      </ecore:EClass>
+      <ecore:EClass xmi:id=""PlayerAttribute""
+          name=""PlayerAttribute""
+          abstract=""false""
+          instanceClassName=""PlayerAttribute"">
+        <ecore:EClass.eStructuralFeatures>
+          <ecore:EAttribute xmi:id=""id""
+              name=""id""
+              eType=""EInt""
+              lowerBound=""1""
+              upperBound=""1""/>
+          <ecore:EAttribute xmi:id=""name""
+              name=""name""
+              eType=""EString""
+              lowerBound=""1""
+              upperBound=""1""/>
+          <ecore:EAttribute xmi:id=""value""
+              name=""value""
+              eType=""EString""
+              lowerBound=""1""
+              upperBound=""1""/>
+        </ecore:EClass.eStructuralFeatures>
+      </ecore:EClass>
+      <ecore:EClass xmi:id=""ScoutingAssignment""
+          name=""ScoutingAssignment""
+          abstract=""false""
+          instanceClassName=""ScoutingAssignment"">
+        <ecore:EClass.eStructuralFeatures>
+          <ecore:EAttribute xmi:id=""id""
+              name=""id""
+              eType=""EInt""
+              lowerBound=""1""
+              upperBound=""1""/>
+          <ecore:EAttribute xmi:id=""playerProfile""
+              name=""playerProfile""
+              eType=""PlayerProfile""
+              lowerBound=""1""
+              upperBound=""1""/>
+          <ecore:EAttribute xmi:id=""scout""
+              name=""scout""
+              eType=""Employee""
+              lowerBound=""1""
+              upperBound=""1""/>
+        </ecore:EClass.eStructuralFeatures>
+      </ecore:EClass>
+      <ecore:EClass xmi:id=""ScoutingReport""
+          name=""ScoutingReport""
+          abstract=""false""
+          instanceClassName=""ScoutingReport"">
+        <ecore:EClass.eStructuralFeatures>
+          <ecore:EAttribute xmi:id=""id""
+              name=""id""
+              eType=""EInt""
+              lowerBound=""1""
+              upperBound=""1""/>
+          <ecore:EAttribute xmi:id=""player""
+              name=""player""
+              eType=""Player""
+              lowerBound=""1""
+              upperBound=""1""/>
+          <ecore:EAttribute xmi:id=""pros""
+              name=""pros""
+              eType=""EString""
+              lowerBound=""1""
+              upperBound=""1""/>
+          <ecore:EAttribute xmi:id=""cons"
+08_Block.docx,Baseline,0.7313089,0.879741532985754,0.8990544080734253,"```xml
+<?xml version=""1.0"" encoding=""UTF-8""?>
+<ecore:Resource xmi:version=""2.0"" xmlns:xmi=""http://www.omg.org/XMI"" xmlns:ecore=""http://www.eclipse.org/emf/2002/Ecore"">
+  <ecore:PackageMerge>
+    <ecore:Package ref=""http://www.example.org/DestroyBlock.ecore#//""/>
+  </ecore:PackageMerge>
+  <ecore:Package name=""DestroyBlock"" nsURI=""http://www.example.org/DestroyBlock.ecore#//"">
+    <eClassifiers xsi:type=""ecore:EClass"" name=""User"">
+      <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""username"" type=""ecore:EString""/>
+      <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""password"" type=""ecore:EString""/>
+      <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""is_admin"" type=""ecore:EBoolean""/>
+    </eClassifiers>
+    <eClassifiers xsi:type=""ecore:EClass"" name=""Game"">
+      <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""name"" type=""ecore:EString""/>
+      <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""hall_of_fame"" type=""ecore:EString""/>
+      <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""min_speed"" type=""ecore:EInt""/>
+      <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""speed_increase_factor"" type=""ecore:EInt""/>
+      <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""max_length"" type=""ecore:EInt""/>
+      <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""min_length"" type=""ecore:EInt""/>
+      <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""admin"" type=""ecore:EObject""/>
+      <eStructuralFeatures xsi:type=""ecore:EReference"" name=""levels"" type=""ecore:EObject""/>
+    </eClassifiers>
+    <eClassifiers xsi:type=""ecore:EClass"" name=""Level"">
+      <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""number"" type=""ecore:EInt""/>
+      <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""starting_arrangement"" type=""ecore:EString""/>
+      <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""random"" type=""ecore:EBoolean""/>
+      <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""num_blocks"" type=""ecore:EInt""/>
+      <eStructuralFeatures xsi:type=""ecore:EReference"" name=""blocks"" type=""ecore:EObject""/>
+    </eClassifiers>
+    <eClassifiers xsi:type=""ecore:EClass"" name=""Block"">
+      <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""color"" type=""ecore:EString""/>
+      <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""points"" type=""ecore:EInt""/>
+      <eStructuralFeatures xsi:type=""ecore:EReference"" name=""grid_position"" type=""ecore:EObject""/>
+    </eClassifiers>
+    <eClassifiers xsi:type=""ecore:EClass"" name=""Player"">
+      <eStructuralFeatures xsi:type=""ecore:EReference"" name=""game"" type=""ecore:EObject""/>
+      <eStructuralFeatures xsi:type=""ecore:EReference"" name=""lives"" type=""ecore:EObject""/>
+    </eClassifiers>
+  </ecore:Package>
+</ecore:Resource>
+```
+
+```xml
+<?xml version=""1.0"" encoding=""UTF-8""?>
+<ecore:Resource xmi:version=""2.0"" xmlns:xmi=""http://www.omg.org/XMI"" xmlns:ecore=""http://www.eclipse.org/emf/2002/Ecore"">
+  <ecore:PackageMerge>
+    <ecore:Package ref=""http://www.example.org/DestroyBlock.ecore#//""/>
+  </ecore:PackageMerge>
+  <ecore:Package name=""DestroyBlock"" nsURI=""http://www.example.org/DestroyBlock.ecore#//"">
+    <eClassifiers xsi:type=""ecore:EClass"" name=""Game"">
+      <eStructuralFeatures xsi:type=""ecore:EReference"" name=""players"" type=""ecore:EObject""/>
+    </eClassifiers>
+    <eClassifiers xsi:type=""ecore:EClass"" name=""User"">
+      <eStructuralFeatures xsi:type=""ecore:EReference"" name=""games"" type=""ecore:EObject""/>
+    </eClassifiers"
