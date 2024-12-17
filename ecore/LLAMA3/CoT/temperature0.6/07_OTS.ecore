@@ -1,0 +1,82 @@
+<ecore:EPackage
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    name="OTS"
+    nsPrefix="ots"
+    nsURI="http://www.example.com/ots">
+
+  <!-- Student Entity -->
+  <eClassifiers xsi:type="ecore:EClass" name="Student">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StudentID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Email" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- Tutor Entity -->
+  <eClassifiers xsi:type="ecore:EClass" name="Tutor">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TutorID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Email" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BankAccount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- Registration Entity -->
+  <eClassifiers xsi:type="ecore:EClass" name="Registration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RegistrationID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Tutor" eType="#//Tutor"/>
+  </eClassifiers>
+
+  <!-- Subject Entity -->
+  <eClassifiers xsi:type="ecore:EClass" name="Subject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SubjectID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- TutoringOffer Entity -->
+  <eClassifiers xsi:type="ecore:EClass" name="TutoringOffer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TutoringOfferID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Tutor" eType="#//Tutor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Subject" eType="#//Subject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HourlyPrice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+
+  <!-- TutoringRequest Entity -->
+  <eClassifiers xsi:type="ecore:EClass" name="TutoringRequest">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TutoringRequestID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TutoringOffer" eType="#//TutoringOffer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Student" eType="#//Student"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TargetDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TargetTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ETime"/>
+  </eClassifiers>
+
+  <!-- TutoringSession Entity -->
+  <eClassifiers xsi:type="ecore:EClass" name="TutoringSession">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TutoringSessionID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TutoringRequest" eType="#//TutoringRequest"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Tutor" eType="#//Tutor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Student" eType="#//Student"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SessionDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SessionTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ETime"/>
+  </eClassifiers>
+
+  <!-- Payment Entity -->
+  <eClassifiers xsi:type="ecore:EClass" name="Payment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PaymentID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TutoringSession" eType="#//TutoringSession"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Student" eType="#//Student"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PaymentMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+
+  <!-- CreditCard Entity -->
+  <eClassifiers xsi:type="ecore:EClass" name="CreditCard">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CreditCardID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Student" eType="#//Student"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CardNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ExpirationDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CVV" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+</ecore:EPackage>

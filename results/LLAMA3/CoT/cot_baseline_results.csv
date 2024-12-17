@@ -1,0 +1,616 @@
+File,Parameters,Text Cosine Similarity,BERT F1,Generated Output
+10_HBMS.docx,Baseline,0.13302164897139226,0.7885807156562805,"Step 1: Identify all entities.
+    - Extract the names of tables or entities mentioned.
+    Step 2: Extract attributes for each entity, including:
+        - Name: Extract the attribute names.
+        - Data Type: Specify the data type if mentioned in the text (e.g., EString, EInt, EBoolean).
+        - Properties: Include properties like ""required"", ""default value"", etc., if explicitly mentioned.
+    Step 3: Identify primary keys and foreign keys for each entity.
+        - Assign attributes as primary keys or foreign keys where applicable.
+    Step 4: Identify relationships between entities.
+        - Specify the type of relationships (e.g., one-to-one, one-to-many, many-to-many).
+        - Include role names and multiplicities (e.g., 1..1, 0..*, 1..*).
+    Step 5: Define the entities and relationships in Ecore format.
+    - Use the Ecore format for generating the output.
+    Step 6: Generate the final output as EMF-compatible code in XMI or Ecore format.
+    - Ensure that the output is suitable for importing into an EMF model.
+
+Step 1: Identify all entities.
+    - Extract the names of tables or entities mentioned.
+    - Entity: Traveller
+    - Entity: Hotel
+    - Entity: Booking
+    - Entity: BookingInformation
+    - Entity: HotelOffer
+    - Entity: City
+    - Entity: HotelChain
+    - Entity: Address
+
+Step 2: Extract attributes for each entity, including:
+    - Name: Extract the attribute names.
+    - Data Type: Specify the data type if mentioned in the text (e.g., EString, EInt, EBoolean).
+    - Properties: Include properties like ""required"", ""default value"", etc., if explicitly mentioned.
+    - Traveller:
+        - Name (EString, required)
+        - BillingInformation (EString, required)
+        - CompanyName (EString, required)
+        - Address (EString, required)
+        - TravelPreferences (EString, optional)
+    - Hotel:
+        - Name (EString, required)
+        - Address (EString, required)
+        - HotelChain (EString, optional)
+    - Booking:
+        - BookingID (EInt, primary key)
+        - TravellerID (EInt, foreign key)
+        - HotelID (EInt, foreign key)
+        - Price (EFloat, required)
+        - CityArea (EString, required)
+        - HotelRating (EInt, required)
+        - KeyPreferences (EString, optional)
+    - BookingInformation:
+        - BookingID (EInt, primary key)
+        - Price (EFloat, required)
+        - CityArea (EString, required)
+        - HotelRating (EInt, required)
+        - KeyPreferences (EString, optional)
+    - HotelOffer:
+        - OfferID (EInt, primary key)
+        - BookingID (EInt, foreign key)
+        - Price (EFloat, required)
+        - CityArea (EString, required)
+        - HotelRating (EInt, required)
+        - KeyPreferences (EString, optional)
+    - City:
+        - CityID (EInt, primary key)
+        - Name (EString, required)
+    - HotelChain:
+        - ChainID (EInt, primary key)
+        - Name (EString, required)
+    - Address:
+        - AddressID (EInt, primary key)
+        - Street (EString, required)
+        - CityID (EInt, foreign key)
+
+Step 3: Identify primary keys and foreign keys for each entity.
+    - Assign attributes as primary keys or foreign keys where applicable.
+    - Traveller: TravellerID (primary key)
+    - Hotel: HotelID (primary key)
+    - Booking: BookingID (primary key), TravellerID (foreign key), HotelID (foreign key)
+    - BookingInformation: BookingID (primary key)
+    - HotelOffer: OfferID (primary key), BookingID (foreign key)
+    - City: CityID (primary key)
+    - HotelChain: ChainID (primary key)
+    - Address: AddressID (primary key), CityID (foreign key)
+
+Step 4: Identify relationships between entities.
+    - Specify the type of relationships (e.g., one-to-one, one-to-many, many-to-many).
+    - Include role names and multiplicities (e.g., 1..1, 0..*, 1..*).
+    - Traveller: Booking (one-to-many, 1..*)
+    - Hotel: Booking (one-to-many, 1..*)
+    - Booking: Traveller (one-to-one, 1..1)
+    - Booking: Hotel (one-to-one, 1..1)
+    - BookingInformation: Booking (one-to-one, 1..1)
+    - HotelOffer: Booking"
+07_OTS.docx,Baseline,0.8949415260450356,0.9284622669219971,"The final answer is:
+
+<ecore:EPackage
+    xmlns:ecore=""http://www.eclipse.org/emf/2002/Ecore""
+    name=""OTS""
+    nsPrefix=""ots""
+    nsURI=""http://www.example.com/ots"">
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Student"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Name"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Email"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Tutor"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Name"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Email"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""BankAccount"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""HourlyPrice"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EFloat""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""WeeklyAvailability"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Subject"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Name"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Level"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""TutoringOffer"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Tutor"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Subject"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""HourlyPrice"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EFloat""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""TutoringRequest"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Student"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Tutor"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Subject"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Level"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""TargetDate"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""TargetTime"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""TutoringSession"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Tutor"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Student"" e"
+06_SHAS.docx,Baseline,0.5769669116667008,0.7538182735443115,"```
+
+
+The problem description is a complex smart home automation system (SHAS) that involves various entities and relationships. The system has users, smart homes, rooms, sensors, actuators, and activity logs. The goal is to create an ER diagram that captures the entities, attributes, primary keys, foreign keys, and relationships between them.
+
+Step 1: Identify all entities.
+- Entities are: User, SmartHome, Room, Sensor, Actuator, ActivityLog, Address, CommandSequence, RuntimeElement, SensorReading, ControlCommand, AlertRule, BooleanExpression, RelationalTerm, NotExpression, BinaryExpression.
+
+Step 2: Extract attributes for each entity.
+- User: name (String)
+- SmartHome: address (Address), rooms (List<Room>), log (ActivityLog)
+- Room: sensors (List<Sensor>), actuators (List<Actuator>)
+- Sensor: deviceID (Integer), deviceStatus (DeviceStatus)
+- Actuator: deviceID (Integer), deviceStatus (DeviceStatus)
+- Address: address (String)
+- ActivityLog: recordedReadings (List<SensorReading>), recordedCommands (List<ControlCommand>)
+- CommandSequence: nextCommand (CommandSequence), command (ControlCommand)
+- RuntimeElement: timestamp (Time)
+- SensorReading: value (Double), sensor (Sensor)
+- ControlCommand: commandType (CommandType), commandStatus (CommandStatus), actuator (Actuator)
+- AlertRule: ruleStatus (RuleStatus), precondition (BooleanExpression), actions (List<CommandSequence>)
+- BooleanExpression: (abstract)
+- RelationalTerm: (abstract)
+- NotExpression: expression (BooleanExpression)
+- BinaryExpression: leftExpr (BooleanExpression), rightExpr (BooleanExpression), binaryOp (BinaryOp)
+
+Step 3: Identify primary keys and foreign keys.
+- Primary keys: User.name, SmartHome.address, Room.deviceID, Sensor.deviceID, Actuator.deviceID, Address.address, ActivityLog.timestamp, CommandSequence.command, RuntimeElement.timestamp, SensorReading.sensor, ControlCommand.actuator, AlertRule.ruleStatus, BooleanExpression.expression, RelationalTerm.expression, NotExpression.expression, BinaryExpression.leftExpr, BinaryExpression.rightExpr
+- Foreign keys: SmartHome.rooms -> Room.deviceID, SmartHome.log -> ActivityLog.timestamp, Room.sensors -> Sensor.deviceID, Room.actuators -> Actuator.deviceID, ActivityLog.recordedReadings -> SensorReading.sensor, ActivityLog.recordedCommands -> ControlCommand.actuator, AlertRule.precondition -> BooleanExpression.expression, AlertRule.actions -> CommandSequence.command
+
+Step 4: Identify relationships between entities.
+- One-to-one: User -> SmartHome (one user can have one smart home), SmartHome -> ActivityLog (one smart home can have one activity log)
+- One-to-many: SmartHome -> Room (one smart home can have many rooms), Room -> Sensor (one room can have many sensors), Room -> Actuator (one room can have many actuators), ActivityLog -> SensorReading (one activity log can have many sensor readings), ActivityLog -> ControlCommand (one activity log can have many control commands), AlertRule -> CommandSequence (one alert rule can have many command sequences)
+- Many-to-many: None
+
+Step 5: Define the entities and relationships in Ecore format.
+
+Output:
+
+
+<ecore:EPackage
+    xmlns:ecore=""http://www.eclipse.org/emf/2002/Ecore""
+    name=""SHASModel""
+    nsPrefix=""shas""
+    nsURI=""http://www.example.com/shas"">
+  <eClassifiers xsi:type=""ecore:EClass"" name=""User"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""name"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""SmartHome"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""address"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//Address""/>
+    <eStructuralFeatures xsi:type=""ecore:EReference"" name=""rooms"" eType=""ecore:EClass http://www.example.com/shas#Room"" containment=""true"" upperBound=""-1""/>
+    <eStructuralFeatures xsi:type=""ecore:EReference"" name=""log"" eType=""ecore:EClass http://www.example.com/shas#ActivityLog"" containment=""true"" upperBound=""-1""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Room"">
+    <eStructuralFeatures xsi:type=""ecore:EReference"" name=""sensors"" eType=""ecore:EClass http://www.example.com/shas#Sensor"" containment=""true"" upperBound=""-1""/>
+    <eStructuralFeatures xsi:type=""ecore:E"
+01_BTMS.docx,Baseline,0.9140696378784383,0.9143266081809998,"Create the domain model using a class diagram for the concepts of the proposed Bus Transportation Management System and their relationships.
+
+Step 1: Identify all entities.
+Step 2: Extract attributes for each entity.
+Step 3: Identify primary keys and foreign keys.
+Step 4: Identify relationships between entities.
+Step 5: Define the entities and relationships in Ecore format.
+Output:
+
+
+```xml
+<ecore:EPackage
+    xmlns:ecore=""http://www.eclipse.org/emf/2002/Ecore""
+    name=""BTMS""
+    nsPrefix=""btms""
+    nsURI=""http://www.example.com/btms"">
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Bus"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""LicencePlate"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"" lowerBound=""1"" upperBound=""10""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""InRepairShop"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"" defaultValueLiteral=""false""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Driver"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""ID"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EInt""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Name"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""OnSickLeave"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EBoolean"" defaultValueLiteral=""false""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Shift"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""ShiftType"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Route"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""RouteNumber"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EInt"" lowerBound=""1"" upperBound=""9999""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""MorningShift"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""AfternoonShift"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""NightShift"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Assignment"">
+    <eStructuralFeatures xsi:type=""ecore:EReference"" name=""Bus"" eType=""btms::Bus"" containment=""true""/>
+    <eStructuralFeatures xsi:type=""ecore:EReference"" name=""Route"" eType=""btms::Route"" containment=""true""/>
+    <eStructuralFeatures xsi:type=""ecore:EReference"" name=""Driver"" eType=""btms::Driver"" containment=""true""/>
+    <eStructuralFeatures xsi:type=""ecore:EReference"" name=""Shift"" eType=""btms::Shift"" containment=""true""/>
+  </eClassifiers>
+</ecore:EPackage>
+```
+
+Note: This is an EMF-compatible Ecore model that represents the domain model of the proposed Bus Transportation Management System. The Ecore model defines the entities, attributes, and relationships of the system, which can be used to generate the corresponding Java classes or other programming languages. The Ecore model is represented in XML format, which can be easily parsed and used in various tools and frameworks. 
+
+The Ecore model defines the following entities:
+
+*   Bus: Represents a bus with attributes LicencePlate (a string with a maximum length of 10) and InRepairShop (a boolean indicating whether the bus is in the repair shop).
+*   Driver: Represents a driver with attributes ID (an integer), Name (a string), and OnSickLeave (a boolean indicating whether the driver is on sick leave).
+*   Shift: Represents a shift with an attribute ShiftType (a"
+03_LabTracker.docx,Baseline,0.9635866675392741,0.9484411478042603,"```xml
+<ecore:EPackage
+    xmlns:ecore=""http://www.eclipse.org/emf/2002/Ecore""
+    name=""LabTrackerModel""
+    nsPrefix=""labtracker""
+    nsURI=""http://www.example.com/labtracker"">
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Doctor"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""PractitionerNumber"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Signature"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Name"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Address"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""PhoneNumber"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Patient"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""HealthNumber"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""FirstName"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""LastName"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""DateOfBirth"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Address"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""PhoneNumber"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Requisition"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""DoctorID"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EInt""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""DateValid"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""PatientID"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EInt""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""TestGroup"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Test"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""TestName"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Duration"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Repetition"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Interval"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Lab"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Address"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type"
+04_CelO.docx,Baseline,0.9213580251909336,0.9446905255317688,"```xml
+<ecore:EPackage
+    xmlns:ecore=""http://www.eclipse.org/emf/2002/Ecore""
+    name=""CelO""
+    nsPrefix=""celo""
+    nsURI=""http://www.example.com/celo"">
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Organizer"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""firstName"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""lastName"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""email"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""postalAddress"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""phoneNumber"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""password"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""eventType"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""startDate"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""endDate"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""occasion"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""location"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""invitations"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Attendee"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""firstName"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""lastName"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""email"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""username"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""password"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""attendanceStatus"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Task"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""taskName"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""taskDescription"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""taskStatus"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name="""
+09_TileO.docx,Baseline,0.72972813912903,0.7764701843261719,"Step 1: Identify all entities.
+The entities are Game, GameBoard, Tile, Connection, Player, ActionCard, and Action.
+
+Step 2: Extract attributes for each entity.
+- Game:
+  - GameID (primary key, EInt)
+  - GameBoard (EReference to GameBoard)
+  - Players (EReference to Player, 2..4)
+- GameBoard:
+  - BoardID (primary key, EInt)
+  - Tiles (EReference to Tile, 2..32)
+- Tile:
+  - TileID (primary key, EInt)
+  - Connections (EReference to Connection, 1..4)
+  - IsHidden (EBoolean)
+  - Color (EString)
+  - IsVisited (EBoolean)
+- Connection:
+  - ConnectionID (primary key, EInt)
+  - FromTile (EReference to Tile)
+  - ToTile (EReference to Tile)
+- Player:
+  - PlayerID (primary key, EInt)
+  - Name (EString)
+  - Color (EString)
+  - StartingPosition (EReference to Tile)
+- ActionCard:
+  - CardID (primary key, EInt)
+  - Type (EString, one of the predefined choices)
+  - Deck (EReference to Deck)
+- Action:
+  - ActionID (primary key, EInt)
+  - Tile (EReference to Tile)
+  - Card (EReference to ActionCard)
+
+Step 3: Identify primary keys and foreign keys.
+- Primary keys: Game.GameID, GameBoard.BoardID, Tile.TileID, Connection.ConnectionID, Player.PlayerID, ActionCard.CardID, Action.ActionID.
+- Foreign keys: Game.Players references Player.PlayerID, GameBoard.Tiles references Tile.TileID, Tile.Connections references Connection.ConnectionID, Player.StartingPosition references Tile.TileID, ActionCard.Deck references GameBoard.BoardID, Action.Tile references Tile.TileID, Action.Card references ActionCard.CardID.
+
+Step 4: Identify relationships between entities.
+- Game has a one-to-one relationship with GameBoard.
+- Game has a one-to-many relationship with Player.
+- Tile has a many-to-many relationship with Connection.
+- Player has a one-to-one relationship with StartingPosition.
+- ActionCard has a one-to-many relationship with Action.
+- Action has a one-to-one relationship with Tile and ActionCard.
+
+Step 5: Define the entities and relationships in Ecore format.
+```xml
+<ecore:EPackage
+    xmlns:ecore=""http://www.eclipse.org/emf/2002/Ecore""
+    name=""TileOModel""
+    nsPrefix=""tileo""
+    nsURI=""http://www.example.com/tileo"">
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Game"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""GameID"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt""/>
+    <eStructuralFeatures xsi:type=""ecore:EReference"" name=""GameBoard"" eType=""ecore:EClass http://www.example.com/tileo/GameBoard"" containment=""true""/>
+    <eStructuralFeatures xsi:type=""ecore:EReference"" name=""Players"" eType=""ecore:EClass http://www.example.com/tileo/Player"" containment=""false"" lowerBound=""2"" upperBound=""4""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""GameBoard"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""BoardID"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt""/>
+    <eStructuralFeatures xsi:type=""ecore:EReference"" name=""Tiles"" eType=""ecore:EClass http://www.example.com/tileo/Tile"" containment=""true"" lowerBound=""2"" upperBound=""32""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Tile"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""TileID"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EInt""/>
+    <eStructuralFeatures xsi:type=""ecore:EReference"" name=""Connections"" eType=""ecore:EClass http://www.example.com/tileo/Connection"" containment=""true"" lowerBound=""1"" upperBound=""4""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""IsHidden"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EBoolean""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Color"" eType=""ecore:EDataType http://www.eclipse.org/em"
+02_H2S.docx,Baseline,0.7752352723176507,0.7551581263542175,"### Step 1: Identify all entities.
+The entities are:
+- Resident
+- PickupVehicle
+- VolunteerDriver
+- ScheduledPickup
+- Item
+- RFIDDevice
+- H2SDistributionCenter
+- FoodBank
+- Category
+- H2SClient
+- PickupRoute
+
+### Step 2: Extract attributes for each entity.
+- Resident:
+  - Name
+  - StreetAddress
+  - PhoneNumber
+  - Email (optional)
+  - PickupDescription
+- PickupVehicle:
+  - VehicleID
+  - AvailableStorageSpace
+- VolunteerDriver:
+  - ID
+  - AvailableDays
+- ScheduledPickup:
+  - PickupID
+  - PickupTime
+  - PickupDate
+  - PickupLocation
+  - PickupStatus
+- Item:
+  - ItemID
+  - Description
+  - Dimensions
+  - Weight
+  - CategoryID
+  - RFIDDeviceID
+- RFIDDevice:
+  - RFIDDeviceID
+  - ArticleStatus
+- H2SDistributionCenter:
+  - CenterID
+  - Location
+- FoodBank:
+  - BankID
+  - Location
+- Category:
+  - CategoryID
+  - CategoryDescription
+- H2SClient:
+  - ClientID
+  - Name
+  - Address
+  - NeededCategories
+- PickupRoute:
+  - RouteID
+  - VehicleID
+  - PickupDate
+  - PickupTime
+
+### Step 3: Identify primary keys and foreign keys.
+- Primary keys:
+  - Resident: ResidentID
+  - PickupVehicle: VehicleID
+  - VolunteerDriver: ID
+  - ScheduledPickup: PickupID
+  - Item: ItemID
+  - RFIDDevice: RFIDDeviceID
+  - H2SDistributionCenter: CenterID
+  - FoodBank: BankID
+  - Category: CategoryID
+  - H2SClient: ClientID
+  - PickupRoute: RouteID
+- Foreign keys:
+  - ScheduledPickup: PickupVehicleID (references PickupVehicle.VehicleID)
+  - Item: PickupID (references ScheduledPickup.PickupID)
+  - Item: RFIDDeviceID (references RFIDDevice.RFIDDeviceID)
+  - H2SClient: CategoryID (references Category.CategoryID)
+
+### Step 4: Identify relationships between entities.
+- One-to-one relationships:
+  - Resident has one RFIDDevice
+  - RFIDDevice is associated with one Item
+  - H2SClient has one Category
+- One-to-many relationships:
+  - PickupVehicle has many ScheduledPickups
+  - VolunteerDriver has many ScheduledPickups
+  - Category has many Items
+  - H2SDistributionCenter has many Items
+  - FoodBank has many Items
+  - PickupRoute has one Vehicle
+- Many-to-many relationships:
+  - H2SClient has many Categories
+  - Item has many H2SClient
+
+### Step 5: Define the entities and relationships in Ecore format.
+The Ecore model is defined below:
+
+```xml
+<ecore:EPackage
+    xmlns:ecore=""http://www.eclipse.org/emf/2002/Ecore""
+    name=""H2SModel""
+    nsPrefix=""h2s""
+    nsURI=""http://www.example.com/h2s"">
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Resident"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Name"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""StreetAddress"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""PhoneNumber"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Email"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""PickupDescription"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""ResidentID"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EInt""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""PickupVehicle"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""VehicleID"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EInt""/>
+    <"
+05_TSS.docx,Baseline,0.8607945742365118,0.9378297924995422,"```xml
+<ecore:EPackage
+    xmlns:ecore=""http://www.eclipse.org/emf/2002/Ecore""
+    name=""TeamSportsScouting""
+    nsPrefix=""teamsport""
+    nsURI=""http://www.example.com/teamsport"">
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Employee"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""ID"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Name"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Role"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""PlayerProfile"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Name"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Value"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""TargetPosition"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""ScoutingList"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""PlayerID"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EInt""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""PlayerName"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""ProfileID"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EInt""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""ScoutingReport"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""PlayerID"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EInt""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Pros"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Cons"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""Recommendation"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""ShortList"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""PlayerID"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EInt""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""ProfileID"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EInt""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Assignment"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""PlayerID"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EInt""/>
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""ScoutingReportID"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EInt""/>
+  </eClassifiers>
+  <eClassifiers xsi:type=""ecore:EClass"" name=""Offer"">
+    <eStructuralFeatures xsi:type=""ecore:EAttribute"" name=""PlayerID"" eType=""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EInt""/>
+  </eClassifiers>
+</ecore:EPackage>
+```
+
+
+The provided code is the correct solution for the given problem. It defines the entities and relationships between them in E"
+08_Block.docx,Baseline,0.5772750667578856,0.7854979634284973,"```python
+import uuid
+
+class User:
+    def __init__(self, username, password, is_admin):
+        self.id = str(uuid.uuid4())
+        self.username = username
+        self.password = password
+        self.is_admin = is_admin
+        self.games = []
+
+class Game:
+    def __init__(self, name):
+        self.id = str(uuid.uuid4())
+        self.name = name
+        self.hall_of_fame = []
+        self.blocks = []
+        self.levels = []
+        self.admin = None
+        self.players = []
+
+class Block:
+    def __init__(self, color, points):
+        self.id = str(uuid.uuid4())
+        self.color = color
+        self.points = points
+
+class Level:
+    def __init__(self, level_number, blocks, grid_size):
+        self.id = str(uuid.uuid4())
+        self.level_number = level_number
+        self.blocks = blocks
+        self.grid_size = grid_size
+
+class Player:
+    def __init__(self, username, password):
+        self.id = str(uuid.uuid4())
+        self.username = username
+        self.password = password
+        self.games = []
+        self.score = 0
+```
+
+Now, let's generate the EMF-compatible code in XMI format for the entities and relationships described in the text.
+
+```python
+from xml.etree import ElementTree as ET
+
+# Define the EPackage
+package = ET.Element(""ecore:EPackage"", attrib={""name"": ""DestroyBlockGame"", ""nsPrefix"": ""dbg"", ""nsURI"": ""http://www.example.com/dbg""})
+
+# Define the EClassifiers
+classifiers = []
+classifiers.append(ET.Element(""ecore:EClass"", attrib={""name"": ""User""}))
+classifiers.append(ET.Element(""ecore:EClass"", attrib={""name"": ""Game""}))
+classifiers.append(ET.Element(""ecore:EClass"", attrib={""name"": ""Block""}))
+classifiers.append(ET.Element(""ecore:EClass"", attrib={""name"": ""Level""}))
+classifiers.append(ET.Element(""ecore:EClass"", attrib={""name"": ""Player""}))
+
+# Define the EStructuralFeatures for User
+user_features = []
+user_features.append(ET.Element(""ecore:EAttribute"", attrib={""name"": ""id"", ""eType"": ""ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString""}))
+user_features.append(ET.Element(""ecore:EAttribute"", attrib={""name"": ""username"", ""eType"": ""ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString""}))
+user_features.append(ET.Element(""ecore:EAttribute"", attrib={""name"": ""password"", ""eType"": ""ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString""}))
+user_features.append(ET.Element(""ecore:EAttribute"", attrib={""name"": ""is_admin"", ""eType"": ""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EBoolean""}))
+user_features.append(ET.Element(""ecore:EReference"", attrib={""name"": ""games"", ""eType"": ""Game"", ""upperBound"": ""1""}))
+
+# Define the EStructuralFeatures for Game
+game_features = []
+game_features.append(ET.Element(""ecore:EAttribute"", attrib={""name"": ""id"", ""eType"": ""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""}))
+game_features.append(ET.Element(""ecore:EAttribute"", attrib={""name"": ""name"", ""eType"": ""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""}))
+game_features.append(ET.Element(""ecore:EAttribute"", attrib={""name"": ""hall_of_fame"", ""eType"": ""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""}))
+game_features.append(ET.Element(""ecore:EReference"", attrib={""name"": ""admin"", ""eType"": ""User"", ""upperBound"": ""1""}))
+game_features.append(ET.Element(""ecore:EReference"", attrib={""name"": ""players"", ""eType"": ""Player"", ""upperBound"": ""-1""}))
+
+# Define the EStructuralFeatures for Block
+block_features = []
+block_features.append(ET.Element(""ecore:EAttribute"", attrib={""name"": ""id"", ""eType"": ""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""}))
+block_features.append(ET.Element(""ecore:EAttribute"", attrib={""name"": ""color"", ""eType"": ""ecore:EDataType http://www.eclipse.org/emf/2002/ECore#//EString""}))
+block_features.append(ET.Element(""ecore:EAttribute"", attrib"

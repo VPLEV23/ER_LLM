@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    name="TeamSportsScoutingSystem"
+    nsPrefix="teamscouting"
+    nsURI="http://www.example.com/teamscouting">
+
+  <!-- Superclass for ID -->
+  <eClassifiers xsi:type="ecore:EClass" name="Identifiable" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+
+  <!-- Employee -->
+  <eClassifiers xsi:type="ecore:EClass" name="Employee" eSuperTypes="#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Role" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- Player -->
+  <eClassifiers xsi:type="ecore:EClass" name="Player" eSuperTypes="#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- PlayerProfile -->
+  <eClassifiers xsi:type="ecore:EClass" name="PlayerProfile" eSuperTypes="#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Player" eType="#//Player" containment="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Position" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- Scout -->
+  <eClassifiers xsi:type="ecore:EClass" name="Scout" eSuperTypes="#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- ScoutingAssignment -->
+  <eClassifiers xsi:type="ecore:EClass" name="ScoutingAssignment" eSuperTypes="#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Player" eType="#//Player" containment="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Scout" eType="#//Scout" containment="false"/>
+  </eClassifiers>
+
+  <!-- ScoutingReport -->
+  <eClassifiers xsi:type="ecore:EClass" name="ScoutingReport" eSuperTypes="#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Player" eType="#//Player" containment="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Pros" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Cons" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Recommendation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- Shortlist -->
+  <eClassifiers xsi:type="ecore:EClass" name="Shortlist" eSuperTypes="#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Player" eType="#//Player" containment="false"/>
+  </eClassifiers>
+
+  <!-- Offer -->
+  <eClassifiers xsi:type="ecore:EClass" name="Offer" eSuperTypes="#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Player" eType="#//Player" containment="false"/>
+  </eClassifiers>
+
+  <!-- TargetProfile -->
+  <eClassifiers xsi:type="ecore:EClass" name="TargetProfile" eSuperTypes="#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TargetPosition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- Attribute -->
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- Director -->
+  <eClassifiers xsi:type="ecore:EClass" name="Director" eSuperTypes="#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    name="H2S"
+    nsPrefix="h2s"
+    nsURI="http://www.example.com/h2s">
+
+  <!-- Resident Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Resident">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="streetAddress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="phoneNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="email" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pickupDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pickupTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pickupVehicle" eType="#//PickupVehicle" containment="true"/>
+  </eClassifiers>
+
+  <!-- PickupVehicle Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="PickupVehicle">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vehicleID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="storageSpace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="weight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="driver" eType="#//VolunteerDriver" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="currentRoute" eType="#//Route" containment="true"/>
+  </eClassifiers>
+
+  <!-- VolunteerDriver Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="VolunteerDriver">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="driverID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pickupVehicle" eType="#//PickupVehicle" containment="false"/>
+  </eClassifiers>
+
+  <!-- Route Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Route">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="routeID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pickupVehicle" eType="#//PickupVehicle" containment="false"/>
+  </eClassifiers>
+
+  <!-- TimeSlot Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="TimeSlot">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeSlotID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- Delivery Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Delivery">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deliveryID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deliveryDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deliveryTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pickupVehicle" eType="#//PickupVehicle" containment="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="client" eType="#//Client" containment="true"/>
+  </eClassifiers>
+
+  <!-- Client Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Client">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="clientID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>
