@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    name="TileO"
+    nsPrefix="tileo"
+    nsURI="http://www.example.com/tileo">
+
+  <!-- Game Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Game">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BoardLayout" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Designer" eType="#//Designer" upperBound="1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Tiles" eType="#//Tile" upperBound="-1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Players" eType="#//Player" upperBound="-1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ActionCards" eType="#//ActionCard" upperBound="-1"/>
+  </eClassifiers>
+
+  <!-- Player Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Player">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Game" eType="#//Game" upperBound="1"/>
+  </eClassifiers>
+
+  <!-- Tile Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Tile">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Position" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsHidden" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsActionTile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ActionTileTurnsRemaining" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ConnectionPieces" eType="#//ConnectionPiece" upperBound="-1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ActionTile" eType="#//ActionTile" upperBound="1"/>
+  </eClassifiers>
+
+  <!-- ConnectionPiece Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="ConnectionPiece">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Tile" eType="#//Tile" upperBound="1"/>
+  </eClassifiers>
+
+  <!-- ActionCard Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="ActionCard">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Choice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Game" eType="#//Game" upperBound="1"/>
+  </eClassifiers>
+
+  <!-- ActionTile Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="ActionTile">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ConnectionPiece" eType="#//ConnectionPiece" upperBound="1"/>
+  </eClassifiers>
+
+  <!-- Designer Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Designer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Game" eType="#//Game" upperBound="1"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    name="DestroyBlockModel"
+    nsPrefix="destroyblock"
+    nsURI="http://www.example.com/destroyblock">
+
+  <!-- User -->
+  <eClassifiers xsi:type="ecore:EClass" name="User">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Username" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AdminMode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PlayMode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+
+  <!-- Game -->
+  <eClassifiers xsi:type="ecore:EClass" name="Game">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GameID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Admin" eType="#//User" containment="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="HallOfFame" eType="#//HallOfFame" containment="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Published" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+
+  <!-- Block -->
+  <eClassifiers xsi:type="ecore:EClass" name="Block">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BlockID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Color" eType="#//BlockColor" containment="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Points" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+
+  <!-- Level -->
+  <eClassifiers xsi:type="ecore:EClass" name="Level">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LevelID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LevelNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Blocks" eType="#//Block" upperBound="-1" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Random" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+
+  <!-- HallOfFame -->
+  <eClassifiers xsi:type="ecore:EClass" name="HallOfFame">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HallOfFameID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Score" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Game" eType="#//Game" containment="false"/>
+  </eClassifiers>
+
+  <!-- Player -->
+  <eClassifiers xsi:type="ecore:EClass" name="Player">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PlayerID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Score" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Lives" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Game" eType="#//Game" containment="false"/>
+  </eClassifiers>
+
+  <!-- BlockColor -->
+  <eClassifiers xsi:type="ecore:EClass" name="BlockColor">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ColorID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ColorName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- BlockPosition -->
+  <eClassifiers xsi:type="ecore:EClass" name="BlockPosition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BlockPositionID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Block" eType="#//Block" containment="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GridPosition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+
+  <!-- PublishedGame -->
+  <eClassifiers xsi:type="ecore:EClass" name="PublishedGame">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PublishedGameID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Game" eType="#//Game" containment="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Player" eType="#//Player" containment="false"/>
+  </eClassifiers>
+
+</ecore:EPackage>
