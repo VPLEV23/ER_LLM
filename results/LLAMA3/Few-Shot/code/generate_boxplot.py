@@ -3,8 +3,8 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('Updated_Cleaned_Few-Shot_Results.csv') 
-df_base = pd.read_csv('Cleaned_Baseline_Experiment_Results.csv')
+df = pd.read_csv('../Updated_Cleaned_Few-Shot_Results.csv') 
+df_base = pd.read_csv('../Cleaned_Baseline_Experiment_Results.csv')
 
 cosine_baseline = df_base['Cosine'].mean()
 bert_baseline   = df_base['BERT'].mean()
