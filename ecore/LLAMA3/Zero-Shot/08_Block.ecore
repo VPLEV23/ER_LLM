@@ -1,0 +1,69 @@
+<ecore:EPackage xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" 
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                name="DestroyBlock" 
+                nsPrefix="db" 
+                nsURI="http://www.example.com/db">
+
+  <eClassifiers xsi:type="ecore:EClass" name="User">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Username" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Mode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EClass" name="Admin" eSuperTypes="db:User">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Games" eType="db:Game" containment="true"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EClass" name="Player" eSuperTypes="db:User">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PlayedGames" eType="db:Game" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Scores" eType="db:Score" containment="true"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EClass" name="Game">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GameName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Blocks" eType="db:Block" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Levels" eType="db:Level" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="HallOfFame" eType="db:Score" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Admin" eType="db:Admin"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EClass" name="Block">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Points" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EClass" name="Level">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LevelNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="GridArrangement" eType="db:Block"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsRandom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BlockCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EClass" name="Score">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Player" eType="db:Player"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Points" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Game" eType="db:Game"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EClass" name="Ball">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Speed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Direction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EClass" name="Paddle">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Position" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EClass" name="GameSession">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Player" eType="db:Player"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Game" eType="db:Game"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Ball" eType="db:Ball"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Paddle" eType="db:Paddle"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Level" eType="db:Level"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Lives" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GameStatus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+</ecore:EPackage>

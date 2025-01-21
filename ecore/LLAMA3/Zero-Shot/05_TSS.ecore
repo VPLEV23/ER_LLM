@@ -1,0 +1,56 @@
+<ecore:EPackage xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" 
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                name="TeamSportsScouting" 
+                nsPrefix="tss" 
+                nsURI="http://www.example.com/tss">
+
+  <eClassifiers xsi:type="ecore:EClass" name="Player">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PlayerID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Position" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Attributes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EClass" name="HeadCoach">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FirstName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PlayerProfiles" eType="tss:Player" containment="true"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EClass" name="Scout">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FirstName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ScoutingAssignments" eType="tss:ScoutingAssignment" containment="true"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EClass" name="HeadScout">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ShortList" eType="tss:Player" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ScoutingAssignments" eType="tss:ScoutingAssignment" containment="true"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EClass" name="ScoutingAssignment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AssignmentDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Player" eType="tss:Player"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Scout" eType="tss:Scout"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ScoutingReport" eType="tss:ScoutingReport"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EClass" name="ScoutingReport">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Pros" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Cons" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Recommendation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EClass" name="Director">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FirstName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PlayerOffers" eType="tss:PlayerOffer" containment="true"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EClass" name="PlayerOffer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OfferDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Player" eType="tss:Player"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OfferAmount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+
+</ecore:EPackage>
