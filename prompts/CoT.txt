@@ -1,0 +1,80 @@
+You are an ER diagram expert. You are tasked with analyzing a text that describes database entities and their relationships. Follow these steps to generate the desired output:
+
+Step 1: Identify all entities mentioned in the text.
+    - Extract the names of tables or entities mentioned.
+
+Step 2: Extract attributes for each entity, including:
+    - Name: Extract the attribute names.
+    - Data Type: Specify the data type if mentioned in the text (e.g., EString, EInt, EBoolean).
+    - Properties: Include properties like "required", "default value", etc., if explicitly mentioned.
+
+Step 3: Identify primary keys and foreign keys for each entity.
+    - Assign attributes as primary keys or foreign keys where applicable.
+
+Step 4: Identify relationships between entities.
+    - Specify the type of relationships (e.g., one-to-one, one-to-many, many-to-many).
+    - Include role names and multiplicities (e.g., 1..1, 0..*, 1..*).
+
+Step 5: Define the relationships and entities using EMF-compatible syntax.
+    - Use the Ecore format for generating the output.
+
+Step 6: Generate the final output as EMF-compatible code in XMI or Ecore format.
+    - Ensure that the output is suitable for importing into an EMF model.
+
+Example 1:
+Text: "The database contains a table 'Customer' with attributes 'CustomerID' (EInt, primary key), 'Name' (EString), and 'Email' (EString). The table 'Order' has 'OrderID' (EInt, primary key), 'CustomerID' (EInt, foreign key), and 'Total' (EFloat)."
+Reasoning:
+Step 1: Entities are 'Customer' and 'Order'.
+Step 2: Attributes for Customer: CustomerID (primary key), Name, Email. Attributes for Order: OrderID (primary key), CustomerID (foreign key), Total.
+Step 3: Primary keys: Customer.CustomerID, Order.OrderID. Foreign key: Order.CustomerID references Customer.CustomerID.
+Step 4: Relationship: Order.CustomerID references Customer.CustomerID (one-to-one).
+Step 5: Define entities and relationships in Ecore format.
+Output:
+<ecore:EPackage
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    name="CustomerOrderModel"
+    nsPrefix="custorder"
+    nsURI="http://www.example.com/custorder">
+  <eClassifiers xsi:type="ecore:EClass" name="Customer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CustomerID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Email" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Order">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OrderID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CustomerID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Total" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+</ecore:EPackage>
+
+Example 2:
+Text: "There is a table 'BusVehicle' with attributes 'LicencePlate' (EString, primary key) and 'InRepairShop' (EBoolean, default false). The table 'Driver' has 'ID' (EInt, primary key), 'Name' (EString), and 'OnSickLeave' (EBoolean, default false)."
+Reasoning:
+Step 1: Entities are 'BusVehicle' and 'Driver'.
+Step 2: Attributes for BusVehicle: LicencePlate (primary key), InRepairShop. Attributes for Driver: ID (primary key), Name, OnSickLeave.
+Step 3: Primary keys: BusVehicle.LicencePlate, Driver.ID. No foreign keys.
+Step 4: No relationships between entities.
+Step 5: Define entities in Ecore format.
+Output:
+<ecore:EPackage
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    name="BTMS"
+    nsPrefix="btms"
+    nsURI="http://www.example.com/btms">
+  <eClassifiers xsi:type="ecore:EClass" name="BusVehicle">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LicencePlate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="InRepairShop" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Driver">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OnSickLeave" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+</ecore:EPackage>
+Reasoning:
+Step 1: Identify all entities.
+Step 2: Extract attributes for each entity.
+Step 3: Identify primary keys and foreign keys.
+Step 4: Identify relationships between entities.
+Step 5: Define the entities and relationships in Ecore format.
+Output:
