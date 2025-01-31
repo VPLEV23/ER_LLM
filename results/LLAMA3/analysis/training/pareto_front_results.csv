@@ -1,0 +1,7 @@
+Parameter Set,Parameters,Cosine Similarity,BERT Score (F1)
+15,"{'temperature': 0.6, 'top_k': 50, 'top_p': 1.0, 'max_new_tokens': 4096}",0.9217351429257628,0.7846264243125916
+43,"{'temperature': 0.7999999999999999, 'top_k': 50, 'top_p': 0.9, 'max_new_tokens': 4096}",0.9113607865289742,0.8251962184906005
+69,"{'temperature': 0.9999999999999999, 'top_k': None, 'top_p': 1.0, 'max_new_tokens': 2048}",0.8723448072756792,0.8801972508430481
+81,"{'temperature': 1.0999999999999999, 'top_k': None, 'top_p': 0.9, 'max_new_tokens': 2048}",0.8734576642546008,0.832509982585907
+90,"{'temperature': 1.0999999999999999, 'top_k': 50, 'top_p': 0.9, 'max_new_tokens': 3072}",0.9162723744704062,0.821502959728241
+91,"{'temperature': 1.0999999999999999, 'top_k': 50, 'top_p': 0.9, 'max_new_tokens': 4096}",0.9392847082474584,0.7704464316368103
