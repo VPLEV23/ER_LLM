@@ -1,0 +1,17 @@
+cff-version: 1.0.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Bulhakov"
+  given-names: "Vladyslav"
+- family-names: "d'Aloisio"
+  given-names: "Giordano"
+- family-names: "Di Sipio"
+  given-names: "Claudio"
+- family-names: "Di Marco"
+  given-names: "Antinisca"
+- family-names: "Di Ruscio"
+  given-names: "Davide"
+title: "LLama Ecore Study"
+version: 1.0.0
+date-released: 2025-01-31
+url: "https://github.com/VPLEV23/ER_LLM"

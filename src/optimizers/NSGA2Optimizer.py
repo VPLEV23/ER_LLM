@@ -41,9 +41,9 @@ class NSGA2Optimizer:
 
     def createElem(self):
         param_ranges_dict = {
-            "temperature": random.uniform(0.7, 1.3),
+            "temperature": random.uniform(0.5, 1.3),
             "top_k": random.randint(0, 100),
-            "top_p": random.uniform(0.9, 1.0),
+            "top_p": random.uniform(0.5, 1.0),
             "repetition_penalty": random.uniform(1.0, 1.2),
             "max_new_tokens": random.choice([512, 1024, 2048, 3072, 4096]),
         }
@@ -161,9 +161,9 @@ class NSGA2Optimizer:
 
 if __name__ == "__main__":
     options = {
-    "numgen": 5,
+    "numgen": 10,
     "mut_prob": 0.2,
-    "cross_prob": 0.5,
+    "cross_prob": 0.9,
     "mu_sel": 10,
     "lambda_sel": 20,
     "inner_mut_prob": 0.2,
