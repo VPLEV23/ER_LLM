@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    name="LabTracker"
+    nsPrefix="labtracker"
+    nsURI="http://www.example.com/labtracker">
+
+  <!-- Main LabTracker Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="LabTracker">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="labs" upperBound="-1" eType="#//Lab" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="persons" upperBound="-1" eType="#//Person" containment="true"/>
+  </eClassifiers>
+
+  <!-- Person Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Person">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firstName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="phoneNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roles" lowerBound="0" upperBound="2" eType="#//PersonRole"/>
+  </eClassifiers>
+
+  <!-- Abstract PersonRole Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="PersonRole" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- Patient Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Patient" eSuperTypes="#//PersonRole">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dateOfBirth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+  </eClassifiers>
+
+  <!-- Doctor Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Doctor" eSuperTypes="#//PersonRole">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="signature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- Lab Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Lab">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="registrationNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="changeCancelFee" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="businessHours" upperBound="7" eType="#//BusinessHour"/>
+  </eClassifiers>
+
+  <!-- BusinessHour Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessHour">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dayOfWeek" eType="#//DayOfWeek"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- Requisition Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Requisition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="effectiveDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="repetitionCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="repetitionInterval" eType="#//Interval"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specificTests" upperBound="-1" eType="#//SpecificTest"/>
+  </eClassifiers>
+
+  <!-- SpecificTest Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="SpecificTest">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="testResult" lowerBound="0" upperBound="1" eType="#//TestResult"/>
+  </eClassifiers>
+
+  <!-- TestResult Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="TestResult">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="negative" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="report" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- Appointment Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Appointment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="confirmationNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- Test Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Test">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+
+  <!-- TestType Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="TestType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="durationAdditive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="access" eType="#//AccessType"/>
+  </eClassifiers>
+
+  <!-- Enumerations -->
+  <eClassifiers xsi:type="ecore:EEnum" name="Interval">
+    <eLiterals name="weekly"/>
+    <eLiterals name="monthly"/>
+    <eLiterals name="everyHalfYear"/>
+    <eLiterals name="yearly"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EEnum" name="AccessType">
+    <eLiterals name="reservable"/>
+    <eLiterals name="walkIn"/>
+    <eLiterals name="dropOff"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EEnum" name="DayOfWeek">
+    <eLiterals name="Monday"/>
+    <eLiterals name="Tuesday"/>
+    <eLiterals name="Wednesday"/>
+    <eLiterals name="Thursday"/>
+    <eLiterals name="Friday"/>
+    <eLiterals name="Saturday"/>
+    <eLiterals name="Sunday"/>
+  </eClassifiers>
+
+</ecore:EPackage>

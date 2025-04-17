@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    name="H2S"
+    nsPrefix="h2s"
+    nsURI="http://www.example.com/h2s">
+
+  <!-- Main H2S Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="H2S">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1" eType="#//Item" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vehicles" upperBound="-1" eType="#//Vehicle" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="routes" upperBound="-1" eType="#//Route" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="userRoles" upperBound="-1" eType="#//UserRole" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="persons" upperBound="-1" eType="#//Person" containment="true"/>
+  </eClassifiers>
+
+  <!-- Person Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Person">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="phoneNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emailAddress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- Abstract UserRole Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="UserRole" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="person" lowerBound="1" upperBound="1" eType="#//Person"/>
+  </eClassifiers>
+
+  <!-- Client Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Client" eSuperTypes="#//UserRole">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="neededCategories" upperBound="-1" eType="#//ItemCategory"/>
+  </eClassifiers>
+
+  <!-- Volunteer Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Volunteer" eSuperTypes="#//UserRole">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="availableDates" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+  </eClassifiers>
+
+  <!-- Resident Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Resident" eSuperTypes="#//UserRole"/>
+
+  <!-- Abstract Item Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Item" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dimension" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="weight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requestedPickupDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+  </eClassifiers>
+
+  <!-- SecondHandArticle Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="SecondHandArticle" eSuperTypes="#//Item">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="codeRFID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="discarded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="category" eType="#//ItemCategory"/>
+  </eClassifiers>
+
+  <!-- FoodItem Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="FoodItem" eSuperTypes="#//Item"/>
+
+  <!-- Route Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Route">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pickupRoute" lowerBound="0" upperBound="1" eType="#//Item"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dropOffRoute" lowerBound="0" upperBound="1" eType="#//Item"/>
+  </eClassifiers>
+
+  <!-- Vehicle Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Vehicle">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dimension" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="weightRestriction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+
+  <!-- Enumeration for ItemCategory -->
+  <eClassifiers xsi:type="ecore:EEnum" name="ItemCategory">
+    <eLiterals name="Baby"/>
+    <eLiterals name="Clothing"/>
+    <eLiterals name="Fridge"/>
+    <!-- Add other categories as needed -->
+  </eClassifiers>
+
+</ecore:EPackage>

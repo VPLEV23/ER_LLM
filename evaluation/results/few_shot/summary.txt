@@ -1,0 +1,12 @@
+                   Text Cosine Similarity             BERT F1           temperature   top_k  top_p max_new_tokens
+                                     mean std count      mean std count      unique  unique unique         unique
+File                                                                                                             
+01_BTMS.docx                     0.920469 NaN     1  0.859753 NaN     1       [0.8]  [30.0]  [0.5]       [2048.0]
+02_H2S.docx                      0.945744 NaN     1  0.922444 NaN     1       [0.8]  [30.0]  [0.5]       [2048.0]
+03_LabTracker.docx               0.965626 NaN     1  0.941970 NaN     1       [0.8]  [30.0]  [0.5]       [2048.0]
+04_CelO.docx                     0.936933 NaN     1  0.940599 NaN     1       [0.8]  [30.0]  [0.5]       [2048.0]
+05_TSS.docx                      0.845814 NaN     1  0.937925 NaN     1       [0.8]  [30.0]  [0.5]       [2048.0]
+06_SHAS.docx                     0.893684 NaN     1  0.913763 NaN     1       [0.8]  [30.0]  [0.5]       [2048.0]
+07_OTS.docx                      0.856926 NaN     1  0.911026 NaN     1       [0.8]  [30.0]  [0.5]       [2048.0]
+09_TileO.docx                    0.917530 NaN     1  0.910399 NaN     1       [0.8]  [30.0]  [0.5]       [2048.0]
+10_HBMS.docx                     0.931736 NaN     1  0.934224 NaN     1       [0.8]  [30.0]  [0.5]       [2048.0]

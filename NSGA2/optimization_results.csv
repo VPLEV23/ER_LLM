@@ -1,0 +1,8 @@
+Parameters,Fitness
+"{'temperature': 0.5, 'top_k': 0, 'top_p': 0.375, 'repetition_penalty': 1.6, 'max_new_tokens': 2048}","(0.26698386276712904, 0.001534616225399077, 36.29139566421509)"
+"{'temperature': 0.5, 'top_k': 0, 'top_p': 0.375, 'repetition_penalty': 1.6, 'max_new_tokens': 2048}","(0.26698386276712904, 0.001534616225399077, 36.29139566421509)"
+"{'temperature': 0.7, 'top_k': 0, 'top_p': 0.375, 'repetition_penalty': 1.6, 'max_new_tokens': 2048}","(0.2579309160340937, 0.0, 172.8621985912323)"
+"{'temperature': 0.7, 'top_k': 0, 'top_p': 0.375, 'repetition_penalty': 1.6, 'max_new_tokens': 2048}","(0.2579309160340937, 0.0, 172.8621985912323)"
+"{'temperature': 0.7, 'top_k': 0, 'top_p': 0.375, 'repetition_penalty': 1.6, 'max_new_tokens': 2048}","(0.2579309160340937, 0.0, 172.8621985912323)"
+"{'temperature': 0.5, 'top_k': 0, 'top_p': 0.1875, 'repetition_penalty': 1.6, 'max_new_tokens': 2048}","(0.3754124396390341, 0.0008683320484124124, 274.41920280456543)"
+"{'temperature': 0.5, 'top_k': 5, 'top_p': 0.34687500000000004, 'repetition_penalty': 1.6, 'max_new_tokens': 512}","(0.3754507264335165, 0.0016588072758167982, 66.777334690094)"

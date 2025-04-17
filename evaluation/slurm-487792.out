@@ -1,0 +1,48 @@
+2025-04-14 15:26:11,158 - INFO - Use pytorch device_name: cuda
+2025-04-14 15:26:11,158 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+Downloading shards:   0%|          | 0/2 [00:00<?, ?it/s]Downloading shards:  50%|█████     | 1/2 [01:44<01:44, 104.95s/it]Downloading shards: 100%|██████████| 2/2 [02:21<00:00, 64.50s/it] Downloading shards: 100%|██████████| 2/2 [02:21<00:00, 70.57s/it]
+2025-04-14 15:30:51,090 - INFO - We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:14<00:14, 14.63s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:19<00:00,  8.89s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:19<00:00,  9.75s/it]
+2025-04-14 15:31:10,956 - INFO - Processing file: 05_TSS.docx
+2025-04-14 15:31:10,995 - INFO - Running model with parameters: {'temperature': 0.8, 'top_k': 30, 'top_p': 0.5, 'max_new_tokens': 2048, 'repetition_penalty': 1.2}
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-04-14 15:32:24,064 - INFO - Processing file: 06_SHAS.docx
+2025-04-14 15:32:24,155 - INFO - Running model with parameters: {'temperature': 0.8, 'top_k': 30, 'top_p': 0.5, 'max_new_tokens': 2048, 'repetition_penalty': 1.2}
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+2025-04-14 15:32:24,716 - WARNING - Empty output detected for file: 06_SHAS.docx, parameters: {'temperature': 0.8, 'top_k': 30, 'top_p': 0.5, 'max_new_tokens': 2048, 'repetition_penalty': 1.2}
+2025-04-14 15:32:24,716 - INFO - Processing file: 02_H2S.docx
+2025-04-14 15:32:24,780 - INFO - Running model with parameters: {'temperature': 0.8, 'top_k': 30, 'top_p': 0.5, 'max_new_tokens': 2048, 'repetition_penalty': 1.2}
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+2025-04-14 15:32:25,389 - WARNING - Empty output detected for file: 02_H2S.docx, parameters: {'temperature': 0.8, 'top_k': 30, 'top_p': 0.5, 'max_new_tokens': 2048, 'repetition_penalty': 1.2}
+2025-04-14 15:32:25,389 - INFO - Processing file: 04_CelO.docx
+2025-04-14 15:32:25,440 - INFO - Running model with parameters: {'temperature': 0.8, 'top_k': 30, 'top_p': 0.5, 'max_new_tokens': 2048, 'repetition_penalty': 1.2}
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-04-14 15:32:29,285 - INFO - Processing file: 01_BTMS.docx
+2025-04-14 15:32:29,343 - INFO - Running model with parameters: {'temperature': 0.8, 'top_k': 30, 'top_p': 0.5, 'max_new_tokens': 2048, 'repetition_penalty': 1.2}
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+2025-04-14 15:32:29,798 - WARNING - Empty output detected for file: 01_BTMS.docx, parameters: {'temperature': 0.8, 'top_k': 30, 'top_p': 0.5, 'max_new_tokens': 2048, 'repetition_penalty': 1.2}
+2025-04-14 15:32:29,798 - INFO - Processing file: 03_LabTracker.docx
+2025-04-14 15:32:29,874 - INFO - Running model with parameters: {'temperature': 0.8, 'top_k': 30, 'top_p': 0.5, 'max_new_tokens': 2048, 'repetition_penalty': 1.2}
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-04-14 15:32:47,311 - INFO - Processing file: 07_OTS.docx
+2025-04-14 15:32:47,373 - INFO - Running model with parameters: {'temperature': 0.8, 'top_k': 30, 'top_p': 0.5, 'max_new_tokens': 2048, 'repetition_penalty': 1.2}
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+2025-04-14 15:32:47,799 - WARNING - Empty output detected for file: 07_OTS.docx, parameters: {'temperature': 0.8, 'top_k': 30, 'top_p': 0.5, 'max_new_tokens': 2048, 'repetition_penalty': 1.2}
+2025-04-14 15:32:47,799 - INFO - Processing file: 09_TileO.docx
+2025-04-14 15:32:47,842 - INFO - Running model with parameters: {'temperature': 0.8, 'top_k': 30, 'top_p': 0.5, 'max_new_tokens': 2048, 'repetition_penalty': 1.2}
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-04-14 15:33:10,678 - INFO - Processing file: 10_HBMS.docx
+2025-04-14 15:33:10,750 - INFO - Running model with parameters: {'temperature': 0.8, 'top_k': 30, 'top_p': 0.5, 'max_new_tokens': 2048, 'repetition_penalty': 1.2}
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+2025-04-14 15:33:11,239 - WARNING - Empty output detected for file: 10_HBMS.docx, parameters: {'temperature': 0.8, 'top_k': 30, 'top_p': 0.5, 'max_new_tokens': 2048, 'repetition_penalty': 1.2}
+2025-04-14 15:33:11,245 - INFO - Calculating statistics...
+2025-04-14 15:33:11,484 - INFO - Saving results to CSV files.
+2025-04-14 15:33:11,512 - INFO - Experiment completed. Results saved to 'experiment_results.csv' and statistics saved to 'experiment_statistics.csv'.

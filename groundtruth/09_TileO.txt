@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    name="TileO"
+    nsPrefix="tileo"
+    nsURI="http://www.example.com/tileo">
+
+  <!-- Main Classes -->
+  <eClassifiers xsi:type="ecore:EClass" name="TileO">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="games" lowerBound="1" upperBound="-1" eType="#//Game"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="die" lowerBound="1" upperBound="1" eType="#//Die"/>
+  </eClassifiers>
+
+  <!-- Die Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Die"/>
+
+  <!-- Game Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Game">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentConnectionPieces" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" eType="#//Mode"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deck" lowerBound="1" upperBound="1" eType="#//Deck"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="players" lowerBound="2" upperBound="4" ordered="true" eType="#//Player"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="currentPlayer" lowerBound="0" upperBound="1" eType="#//Player"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connections" lowerBound="0" upperBound="-1" eType="#//Connection"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tiles" lowerBound="2" upperBound="-1" eType="#//Tile"/>
+  </eClassifiers>
+
+  <!-- Player Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Player">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="turnsUntilActive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="startingTile" lowerBound="0" upperBound="1" eType="#//Tile"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="currentTile" lowerBound="0" upperBound="1" eType="#//Tile"/>
+  </eClassifiers>
+
+  <!-- Deck Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Deck">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cards" lowerBound="0" upperBound="32" ordered="true" eType="#//ActionCard"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="currentCard" lowerBound="0" upperBound="1" eType="#//ActionCard"/>
+  </eClassifiers>
+
+  <!-- ActionCard Abstract Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="ActionCard" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="instructions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- Specific Action Cards -->
+  <eClassifiers xsi:type="ecore:EClass" name="RollDieActionCard" eSuperTypes="#//ActionCard"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConnectTilesActionCard" eSuperTypes="#//ActionCard"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TeleportActionCard" eSuperTypes="#//ActionCard"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RemoveConnectionActionCard" eSuperTypes="#//ActionCard"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LoseTurnActionCard" eSuperTypes="#//ActionCard"/>
+
+  <!-- Tile Abstract Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Tile" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasBeenVisited" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+
+  <!-- Specific Tile Classes -->
+  <eClassifiers xsi:type="ecore:EClass" name="WinTile" eSuperTypes="#//Tile"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NormalTile" eSuperTypes="#//Tile"/>
+
+  <!-- Connection Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Connection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tiles" lowerBound="0" upperBound="2" eType="#//Tile"/>
+  </eClassifiers>
+
+  <!-- Enumerations -->
+  <eClassifiers xsi:type="ecore:EEnum" name="Mode">
+    <eLiterals name="DESIGN"/>
+    <eLiterals name="GAME"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EEnum" name="Color">
+    <eLiterals name="RED"/>
+    <eLiterals name="BLUE"/>
+    <eLiterals name="GREEN"/>
+    <eLiterals name="YELLOW"/>
+  </eClassifiers>
+
+</ecore:EPackage>

@@ -1,0 +1,6 @@
+Parameters,Fitness
+"{'temperature': 1.0, 'top_k': None, 'top_p': 0.95, 'repetition_penalty': 1.0, 'max_new_tokens': 8192}","(0.854359684243188, 0.8227460634822985, 156.26816459559058)"
+"{'temperature': 1.0, 'top_k': 50, 'top_p': 1.0, 'repetition_penalty': 1.1, 'max_new_tokens': 4096}","(0.769943585460362, 0.8018482644368726, 109.15417474055931)"
+"{'temperature': 0.7, 'top_k': 50, 'top_p': 1.0, 'repetition_penalty': 1.2, 'max_new_tokens': 4096}","(0.7167530371161058, 0.80759773575019, 108.68538796698355)"
+"{'temperature': 0.7, 'top_k': None, 'top_p': 0.95, 'repetition_penalty': 1.2, 'max_new_tokens': 8192}","(0.7567724135777432, 0.8272046148247911, 144.35290047750311)"
+"{'temperature': 0.7, 'top_k': 50, 'top_p': 0.95, 'repetition_penalty': 1.0, 'max_new_tokens': 4096}","(0.8155575921787914, 0.7940620960531368, 120.44591673329867)"

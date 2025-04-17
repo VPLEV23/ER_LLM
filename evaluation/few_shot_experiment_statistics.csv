@@ -1,0 +1,3 @@
+Parameters,Text Cosine Similarity,Text Cosine Similarity,Text Cosine Similarity,Text Cosine Similarity,BERT F1,BERT F1,BERT F1,BERT F1
+,min,max,mean,std,min,max,mean,std
+"{'temperature': 0.8, 'top_k': 30, 'top_p': 0.5, 'max_new_tokens': 2048, 'repetition_penalty': 1.2}",0.8458141826990594,0.9656262391583698,0.912717927689029,0.04011303925274911,0.859752893447876,0.9419702291488647,0.91912266280916,0.025668575220171408

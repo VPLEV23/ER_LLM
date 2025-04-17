@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    name="EventManagementSystem"
+    nsPrefix="ems"
+    nsURI="http://www.example.com/ems">
+
+  <!-- Main Classes -->
+  <!-- Person Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Person">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firstName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emailAddress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roles" lowerBound="0" upperBound="2" eType="#//PersonRole"/>
+  </eClassifiers>
+
+  <!-- Abstract PersonRole Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="PersonRole" abstract="true"/>
+
+  <!-- Attendee Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Attendee" eSuperTypes="#//PersonRole"/>
+
+  <!-- Organizer Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Organizer" eSuperTypes="#//PersonRole">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="phoneNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- Location Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Location">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- Event Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Event">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="occasion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startDateTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endDateTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eventType" lowerBound="1" upperBound="1" eType="#//EventType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" lowerBound="1" upperBound="1" eType="#//Location"/>
+  </eClassifiers>
+
+  <!-- EventType Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="EventType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+
+  <!-- Registration Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="Registration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attendee" lowerBound="1" upperBound="1" eType="#//Attendee"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="event" lowerBound="1" upperBound="1" eType="#//Event"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" eType="#//AttendeeStatus"/>
+  </eClassifiers>
+
+  <!-- CheckListTask Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="CheckListTask">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskStatus" lowerBound="1" upperBound="1" eType="#//TaskStatus"/>
+  </eClassifiers>
+
+  <!-- TaskStatus Class -->
+  <eClassifiers xsi:type="ecore:EClass" name="TaskStatus">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" eType="#//CompletionStatus"/>
+  </eClassifiers>
+
+  <!-- Enumerations -->
+  <eClassifiers xsi:type="ecore:EEnum" name="AttendeeStatus">
+    <eLiterals name="Yes"/>
+    <eLiterals name="Maybe"/>
+    <eLiterals name="No"/>
+    <eLiterals name="NoResponse"/>
+  </eClassifiers>
+
+  <eClassifiers xsi:type="ecore:EEnum" name="CompletionStatus">
+    <eLiterals name="ToBeDone"/>
+    <eLiterals name="Done"/>
+    <eLiterals name="NotApplicable"/>
+    <eLiterals name="Attendee"/>
+  </eClassifiers>
+
+</ecore:EPackage>

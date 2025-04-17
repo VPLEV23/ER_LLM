@@ -1,0 +1,768 @@
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+LIFEMap
+Page 1Criteri di inclusione ed esclusione
+Record ID
+__________________________________
+Criteri di inclusione
+Si No
+Diabete mellito tipo I o II con o
+senza complicanze (retinopatia,
+nefropatia, neuropatia)
+Obesità (BMI > 30 kg/m2)
+oppure se pediatrico BMI >= 2
+SDS sec. curve WHO
+Malattia cardiovascolare
+Ipertensione arteriosa
+Dislipidemie
+Neoplasia solida o tumori del
+sangue (Pediatrico: leucemia
+linfatica acuta, leucemia
+mieloide acuta, linfoma di
+Hodgkin, linfomi non Hodgkin,
+neuroblastoma e tumori
+neuroectodermici, sarcomi,
+tumori renali, tumori cerebrali 
+Adulto: tumori di stomaco,
+esofago, pancreas, colonretto,
+mammella, ovaio, prostata,
+polmone e pleura)
+Artrite reumatoide / AIG
+Malattia di Still / febbri ricorrenti
+non monogeniche
+Lupus eritematoso sistemico
+Dermatomiosite
+Criteri di esclusione
+Si No
+Malattia genetica nota (es.
+cromosomopatie, sindromi
+genetiche, obesità monogeniche,
+sdr di Down, etc)
+Forme indifferenziate di artriti o
+connettiviti sistemiche
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+Page 2
+Sindromi da predisposizione
+tumorale in assenza di tumore
+(ed Poliposi familiare, Anemia di
+Fanconi, Beckwith Wideman,
+Malattie del telomero, Anemia di
+Blackfan Diamond, Sindrome di
+Schwachman Diamond,
+Neutropenie Congenite,
+Disregolazioni immunologiche
+primarie associate a
+insufficienza midollare,
+Immunodeficit associati a
+insufficienza midollare)
+Ipercolesterolemia famigliare
+Il partecipante/genitore se minore/rappresentante Yes
+legale ha fornito il consenso a partecipare allo No
+studio?
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+LIFEMap
+Page 3Arruolamento
+Centro arruolatore: Istituto Giannina Gaslini (IGG)
+IRCCS San Raffaele Roma (SRR)
+Azienda Santobono-Pausilipon (AORN-SP)
+ASL Teramo (ASLTe)
+Università di Padova (UniPD)
+Data di valutazione:
+__________________________________
+Il/la partecipante è adulto/a o pediatrica/o? Pediatrico (< 18 anni)
+Adulto (>= 18 anni)
+Il partecipante fa parte di un TRIO (mamma, papà, Yes
+bambino)? No
+Inserisci i numeri dei record TRIO a cui questo
+partecipante è associato (es. 12, 55) __________________________________
+Anonimizzazione Retrospettivo (anonimizzato)
+Prospettico (pseudoanonimizzato)
+Pseudoanonimizzazione (iniziali)
+__________________________________
+Anno di nascita
+__________________________________
+Età
+__________________________________
+Sesso biologico alla nascita Maschio
+Femmina
+(NOTA: come identificato dallo sperimentatore)
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+LIFEMap
+Page 4Storia perinatale e pediatrica
+Diabete gestazionale materno Si
+No
+Nascita pretermine Si
+No
+Età gestazionale (settimane)
+__________________________________
+Peso alla nascita (kg)
+__________________________________
+Periodo neonatale (primi 28 giorni) Normale
+Anormale
+Anomalie somatiche Si
+No
+Allattamento al seno No
+< 6 mesi
+>= 6 mesi
+Sviluppo psicomotorio Normale
+Anormale
+Sviluppo puberale precoce Si
+No
+Sviluppo puberale ritardato Si
+No
+Scala di Tanner I
+II
+III
+IV
+V
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+LIFEMap
+Page 5Malattie metaboliche
+Il/la partecipante ha una malattia metabolica? Si
+No
+Malattie metaboliche
+Si No
+Diabete mellito
+Evento CV
+Ipertensione arteriosa
+Steatosi epatica (MAFLD)
+Obesità
+Sindrome metabolica
+Durata di malattia diabete mellito (anni)
+__________________________________
+Tipo di diabete DMT1
+DMT2
+Diabete insulino-dipendente Si
+No
+Danno d'organo (diabete) Retinopatia diabetica
+Nefropatia diabetica
+Piede diabetico
+Artropatia diabetica
+Neuropatia autonomica o somatica
+Cardiovascolare Sindrome coronarica acuta (NSTEMI, STEMI, angina
+instabile)
+Interventi sul sistema cardiovascolare (bypass,
+rivascolarizzazione, tromboendoarterectomia,
+aneurismectomia, valvuloplastica)
+Ictus/TIA
+Ospedalizzazione per scompenso cardiaco
+Morte per causa cardiovascolare
+Età evento cardiovascolare (anni)
+__________________________________
+Durata di malattia ipertensione (anni)
+ 
+__________________________________
+Danno d'organo (ipertensione) Cardiopatia ipertensiva
+Nefropatia ipertensiva
+Retinopatia ipertensiva
+Età di esordio (obesità) < 5 anni
+>= 5 anni
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+Page 6
+Obesità secondarie (farmaci, endocrinopatie, post Yes
+chemio/radioterapia, pseudoipoparatiroidismo, etc.) No
+Comorbidità obesità pediatrica Sindrome dell'ovaio policistico
+Pseudotumor cerebri
+Epifisiolisi del collo femorale
+Malattia di Blount
+Calcoli biliari
+Asma ricorrente
+Disturbi del sonno
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+LIFEMap
+Page 7Malattie reumatologiche
+Il/la partecipante allo studio ha una diagnosi di Si
+malattia autoimmune? No
+Storia e caratteristiche cliniche della malattia reumatica
+Diagnosi di malattia reumatica/autoimmune: Artrite reumatoide
+Lupus eritematoso sistemico
+Febbri ricorrenti non monogeniche / Malattia di
+Still
+Artrite idiopatica giovanile
+Dermatomiosite
+Specifica diagnosi (testo libero)
+__________________________________
+Età all'esordio
+__________________________________
+Durata di malattia (anni)
+__________________________________
+Danno da malattia Si
+No
+Indice di danno da malattia MSK (atrofia/debolezza muscolare, deformità
+articolare, osteoporosi/frattura, necrosi
+avascolare, osteomielite)
+SKIN (alopecia, ulcere cutanee/mucose)
+EYE (cataratta, retinopatia, atrofia NO,
+ipovisus/cecità, diplopia, distruzione orbita)
+ENT (ipoacusia, perforazione settale, collasso
+cartilagine nasale, stenosi subglottica,
+rinite/sinusite cronica)
+LUNG (ipertensione polmonare, fibrosi
+polmonare/pleurica, infarto polmonare, asma
+cronica, dispnea cronica, ridotta capacità
+polmonare)
+CVD (angioplastica, IMA, cardiomiopatia,
+valvulopatia, pericardie cronica, ipertensione)
+PVD (arteriopatia periferica, stenosi arteriosa,
+ulcere vascolari, TVP complicata)
+GI (infarto intestinale, pancreatite/mesenterite,
+peritonite cronica, stenosi esofagea)
+KIDNEY (insufficienza renale, proteinuria
+persistente)
+NEUROPSYCH (declino cognitivo, psicosi, epilessia,
+evento cerebrovascolare, paralisi NC, neuropatia
+periferica)
+ALTRO (ipogonadismo, insufficienza midollare,
+diabete, mellito cistite chimica, cancro)
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+Page 8
+Farmaci antireumatici
+csDMARDs (numero 0
+1
+>=2
+b/tsDMARDs (numero) 0
+1
+>=2
+Dose di glucocorticoidi (mg-equivalenti di prednisone)
+__________________________________
+Attività di malattia Inattiva/Remissione
+Attiva/Bassa attività di malattia
+Attiva/Moderata attività di malattia
+Attiva/Elevata attività di malattia
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+LIFEMap
+Page 9Malattie neoplastiche
+Il/la partecipante ha una diagnosi di neoplasia? Si
+No
+Anamnesi della neoplasia
+Età all'esordio (neoplasia)
+__________________________________
+Infante (<  =12 mesi) Si
+No
+Tipo di neoplasia (campo libero) ICD-O-3
+__________________________________
+Rischio non applicabile
+standard
+medio
+alto
+Stadio I
+II
+III
+IV
+N/A
+Terapie e risposta al trattamento
+Si No
+Chemioterapia
+Radioterapia
+Immunoterapia (anticorpi
+monoclonali / BITE)
+Terapia target (es. TKI, IL2...)
+Terapia cellulare (CAR-T, ...)
+Trapianto
+Inizio della terapia (data)
+__________________________________
+Termine della terapia (data)
+__________________________________
+Risposta al trattamento Completa
+Parziale
+No remissione
+In terapia
+Tempo in remissione
+__________________________________
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+Page 10
+Recidiva di malattia Si
+No
+Data della recidiva
+__________________________________
+Secondo tumore Si
+No
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+LIFEMap
+Page 11Comorbidità
+Altre comorbidità di interesse:
+Tromboembolismo venoso (TVP, embolia polmonare) non provocata
+Insufficienza renale cronica (CKD KDIGO 3b-4-5) o dialisi
+Cirrosi epatica
+Patologie psichiatriche (depressione maggiore, psicosi, disturbo bipolare, ADHD, DCA)
+Demenze
+BPCO
+Asma
+Insufficienza respiratoria cronica
+Infezioni croniche (HIV, HCV, HBV, TBC, HPV, Helycobacter Pylori, CMV, EBV)
+Altre malattie autoimmuni (celiachia, tiroidite di Hashimoto, gastrite atrofica, morbo di Addison, psoriasi,
+sclerosi multipla, ecc.)
+Atopia (dermatite atopica, rinite allergica, congiuntivite allergica)
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+LIFEMap
+Page 12Performance status (adulti)
+ECOG Performance Status 0 - Fully active, able to carry on all pre-disease
+performance without restriction
+1 - Restricted in physically strenuous activity
+but ambulatory and able to carry out work of a
+light or sedentary nature, e.g., light house work,
+office work
+2 - Ambulatory and capable of all selfcare but
+unable to carry out any work activities; up and
+about more than 50% of waking hours
+3 - Capable of only limited selfcare; confined to
+bed or chair more than 50% of waking hours
+4 - Completely disabled; cannot carry on any
+selfcare; totally confined to bed or chair
+5 - Dead
+Karnofsky Performance Status 100-Normal, no complaints; no evidence of disease
+90-Able to carry on normal activity; minor signs
+or symptoms of disease
+80-Normal activity with effort, some signs or
+symptoms of disease
+70-Cares for self but unable to carry on normal
+activity or to do active work
+60-Requires occasional assistance but is able to
+care for most of personal needs
+50-Requires considerable assistance and frequent
+medical care
+40-Disabled; requires special care and assistance
+30-Severely disabled; hospitalization is indicated
+although death not imminent
+20-Very ill; hospitalization and active supportive
+care necessary
+10-Moribund
+0-Dead
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+LIFEMap
+Page 13Performance status (pediatrici)
+Lansky Performance Status 100, Fully active, normal
+90, Minor restrictions in strenuous physical
+activity
+80, Active, but gets tired more quickly
+70, Greater restriction of play and less time
+spent in play activity
+60, Up and around, but active play minimal; keeps
+busy by being involved in quieter activities
+50, Lying around much of the day, but gets
+dressed; no active playing participates in all
+quiet play and activities
+40, Mainly in bed; participates in quiet activities
+30, Bedbound; needing assistance even for quiet
+play
+20, Sleeping often; play entirely limited to very
+passive activities
+10, Doesn't play; does not get out of bed
+0, Unresponsive
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+LIFEMap
+Page 14Follow-up
+Follow up partecipante Decesso
+Vivo
+Perso al follow-up
+(*decesso *perso al follow-up: si intende per
+partecipante reclutato retrospettivamente)
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+LIFEMap
+Page 15Dati antropometrici e parametri vitali
+Peso (kg)
+__________________________________
+Altezza (m)
+__________________________________
+(inserire l'altezza in metri)
+Altezza SDS (pediatrico)
+__________________________________
+BMI (kg/m2)
+__________________________________
+BMI SDS (pediatrico) WHO
+__________________________________
+Circonferenza vita (cm)
+__________________________________
+Pressione arteriosa sistolica mmHg
+__________________________________
+Pressione arteriosa diastolica mmHg
+__________________________________
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+LIFEMap
+Page 16Esami di laboratorio
+Hb (g/dl)
+__________________________________
+Leucociti (10*9/L)
+__________________________________
+Neutrofili (10*9/L)
+__________________________________
+Linfociti (10*9/L)
+__________________________________
+Piastrine (10*9/L)
+__________________________________
+PCR (mg/L)
+__________________________________
+VES (mm/h)
+__________________________________
+Creatinina (mg/dl)
+__________________________________
+ALT (U/l)
+__________________________________
+AST (U/l)
+__________________________________
+Colesterolo totale (mg/dl)
+__________________________________
+HDL (mg/dl)
+__________________________________
+LDL (mg/dl)
+__________________________________
+Trigliceridi (mg/dl)
+__________________________________
+Glicemia a digiuno (mg/dl)
+__________________________________
+HbA1c (mmol/mol)
+__________________________________
+Acido urico (mg/dl)
+__________________________________
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+Page 17
+LDH (U/l)
+__________________________________
+Componente monoclonale (g/dl)
+__________________________________
+% blasti (midollo)
+__________________________________
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+LIFEMap
+Page 18Q1. LIFEMAP: Variabili sociodemografiche
+Questionario sociodemografico
+LIFEMAP
+-------------------
+ 
+ 
+In quale genere si identifica? Donna
+Uomo
+Non binario
+Preferisco non rispondere
+Come si identifica in termini di etnia? Bianco
+Per favore selezionare tutti i gruppi in cui si Asiatico
+identifica Africano
+Ispanico e latino-americano
+Arabo
+Misto o molteplici gruppi etnici
+I suoi nonni sono nati in Italia? Yes
+No
+Qual è il codice di avviamento postale (CAP)
+dell'area in cui ha vissuto per la maggior parte della __________________________________
+sua vita (es. 35121)?
+Istruzione Scuola primaria
+Scuola secondaria di primo grado
+Liceo, istituto tecnico o professionale
+Laurea
+Dottorato
+Occupazione Studente/Studentessa
+Occupato/a
+Disoccupato/a
+Pensionato/a
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+Page 19
+Con chi vive? Vivo solo/a
+Vivo in coppia
+Vivo con la mia famiglia d'origine
+Altro
+Cittadinanza Italiana
+Paese UE
+Paese extra-UE
+Con le risorse finanziarie a tua disposizione 1 (con molta difficoltà)
+(provenienti dal tuo reddito o da quello della tua 2
+famiglia), indichi con un voto da 1 a 5 quanto riesci 3
+a soddisfare le esigenze della tua attuale situazione 4
+di vita? 5 (senza difficoltà)
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+LIFEMap
+Page 20Q2. LIFEMAP: Anamnesi familiare
+Storia clinica familiare
+Noto Non noto
+Madre
+Padre
+Fratelli/sorelle
+Nonni
+Anamnesi patologica madre Neoplasia
+Obesità
+Chirurgia bariatrica
+Ipertensione arteriosa
+Diabete mellito
+Evento cardiovascolare <  65 anni
+Malattia autoimmune
+Altro
+Specificare (neoplasia)
+__________________________________
+Specificare (malattia autoimmune)
+__________________________________
+Specificare (altro)
+__________________________________
+Anamnesi patologica padre Neoplasia
+Obesità
+Chirurgia bariatrica
+Ipertensione arteriosa
+Diabete mellito
+Evento cardiovascolare <  65 anni
+Malattia autoimmune
+Altro
+Specificare (neoplasia)
+__________________________________
+Specificare (malattia autoimmune)
+__________________________________
+Specificare (altro)
+__________________________________
+Anamnesi patologica fratelli/sorelle Neoplasia
+Obesità
+Chirurgia bariatrica
+Ipertensione arteriosa
+Diabete mellito
+Evento cardiovascolare <  65 anni
+Malattia autoimmune
+Altro
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+Page 21
+Specificare (neoplasia)
+__________________________________
+Specificare (malattia autoimmune)
+__________________________________
+Specificare (altro)
+__________________________________
+Anamnesi patologica nonni Neoplasia
+Obesità
+Chirurgia bariatrica
+Ipertensione arteriosa
+Diabete mellito
+Evento cardiovascolare <  65 anni
+Malattia autoimmune
+Altro
+Specificare (neoplasia)
+__________________________________
+Specificare (malattia autoimmune)
+__________________________________
+Specificare (altro)
+__________________________________
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+LIFEMap
+Page 22Q3. LIFEMAP: Esposizioni e stile di vita
+Questionario esposizioni e stile di vita
+LIFEMAP
+-------------------
+ 
+ 
+E' un fumatore? Mai fumato (si intende meno di un pacchetto - 20
+sigarette - nella vita)
+Fumo attivo
+Fumo pregresso (ha smesso più di 10 anni fa)
+Fumo passivo
+Quanti sigarette al giorno ha fumato in media: < 5 sigarette
+6-10 sigarette (circa mezzo pacchetto)
+11-20 sigarette (quasi un pacchetto)
+>=20 (1 pacchetto)
+Per quanti anni ha fumato?
+__________________________________
+Quanti giorni a settimana, mediamente, ha praticato 0
+attività fisica di intensità moderata/elevata (es. 1
+nuotare, correre, palestra, sport, ecc..). 2
+Si intende una attività che aumenta la frequenza 3
+cardiaca e/o aumenta la sudorazione corporea. 4
+5
+6
+7
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+Page 23
+Durante il suo tempo libero ha mai svolto una delle seguenti attività per almeno un anno,
+almeno due volte alla settimana?
+No Si Non so
+Manutenzione o costruzione di
+edifici e relativi impianti
+(muratore, decoratore di interni,
+idraulico)
+Manutenzione di auto e
+motoveicoli, includendo lavori a
+freni e frizioni
+Saldatura
+Manutenzione o costruzione di
+barche, navi, barche a vela,
+imbarcazioni da diporto
+Manutenzione o riparazione di
+apparecchi radio o elettrici
+Piccoli lavori di falegnameria
+Attività di orto /giardinaggio
+Pittura artistica
+Durante il suo tempo libero, ha mai utilizzato uno dei seguenti prodotti per almeno un anno,
+almeno due volte alla settimana?
+No Si Non so
+Smacchiatori
+Sverniciatori
+Colle e mastici
+Solventi
+Tarlicidi
+Pesticidi
+Ha abitato a meno di 1 km di distanza da impianti industriali del seguente tipo per almeno un
+anno?
+No Si Non so
+Impianto chimico
+Petrolchimico e raffineria
+Siderurgia
+Centrale elettrica
+Miniere e/o cave
+Area portuale
+Presenza/uso di amianto o altre
+fibre minerali
+Discarica
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+Page 24
+Inceneritore
+Riferimento:
+https://www.inail.it/cs/internet/docs/alg-questionario-pubbl-renaloccam-sist-monir-neoplasie-man-oper.pdf
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+LIFEMap
+Page 25Q4. LIFEMAP: Alimentazione (PREDIMED)
+Questionario alimentazione
+LIFEMAP
+-------------------
+ 
+ 
+Utilizza l'olio di oliva come principale grasso per No
+cucinare? Si
+Quanto olio consuma al giorno inclusi fritture, < 4 cucchiai
+insalate, pasti fuori casa etc? >= 4 cucchiai
+Quante porzioni di verdura consuma al giorno (1 < 2 porzioni
+porzione=200 g; considerare il contorno come una ≥ 2 oppure ≥1 porzione di verdura cruda o
+mezza porzione) ? insalata
+Quante porzioni di frutta consuma al giorno, inclusi < 3
+i succhi di frutta naturali (1 porzione=200 g) ? ≥ 3
+Quante porzioni di carne rossa, insaccati consuma uno o più
+al giorno (1 porzione=100-150 g) ? meno di uno
+Quante porzioni di burro, margarina e creme uno o più
+consuma al giorno (1 porzione=12 g) ? meno di uno
+Quanti bevande zuccherate o gassate consuma al uno o più
+giorno ? meno di uno
+Quanto vino consuma alla settimana ? >=7 bicchieri
+< 7 bicchieri
+Quante porzioni di legumi consuma alla settimana < 3
+(1 porzione=150 g) ? >=3
+Quante porzioni di pesce e frutti di mare consuma < 3
+alla settimana (1 porzione = 100-150 g di pesce >=3
+oppure 200 g di frutti di mare oppure 4-5 pezzi)
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+Page 26
+Quante volte alla settimana consuma dolci >=3
+confezionati ? < 3
+Quante porzioni di frutta secca (incluse le arachidi) < 3
+consuma alla settimana (1 porzione=30 g) >=3
+Consuma preferenzialmente carne di pollo, no
+tacchino e coniglio invece che vitello, maiale, si
+hamburgers o salsicce?
+Quante volte alla settimana consuma vegetali, < 2
+pasta, riso, altri cereali conditi con sugo semplice >=2
+di pomodoro (pomodoro, cipolla, porro, olio, aglio)
+?
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+LIFEMap
+Page 27Q4. LIFEMAP: Alimentazione (KIDMED)
+Questionario alimentazione pediatrico (KIDMED)
+LIFEMAP
+-------------------
+  
+ 
+Mangi frutta ogni giorno? Esempi: mele, pere, fragole, No
+arance, mandarini, ananas, melone, kiwi, albicocche, Si
+uva, banane, ciliegie, fichi ecc.
+Mangi frutta più di 1 volta al giorno? No
+Si
+Mangi verdura cruda o cotta regolarmente ogni giorno No
+(è compresa quella cruda come l'insalata, i pomodori Si
+o i finocchi e quella cotta come i broccoli, gli
+spinaci e la verdura con la pasta o il minestrone.
+Sono escluse le patate)?
+Mangi verdura cruda o cotta più di 1 volta al giorno? No
+Si
+Quante volte a settimana mangi pesce (sono compresi
+seppie, polpi, calamari, sogliole, pesce spada, tonno, __________________________________
+salmone affumicato, orate e pesce impanato come
+croccole e bastoncini)?
+Vai più di 1 volta alla settimana a mangiare in un No
+fast food (es. Burger King, Mc Donald's, oppure il Si
+kebab)?
+Considerando che i legumi si possono mangiare o con la
+pasta/riso o a zuppa, quante volte a settimana li __________________________________
+mangi (piselli, ceci, fagioli, lenticchie)?
+Mangi pasta/riso quasi ogni giorno (almeno 5 volte a No
+settimana)? Si
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+Page 28
+A colazione mangi cereali, pane o fette biscottate? No
+Si
+Mangi frutta secca (noci, nocciole, mandorle, arachidi No
+non salate) almeno 2-3 volte a settimana durante tutto Si
+l'anno?
+Usi l'olio d'oliva come condimento? No
+Si
+Quante volte fai la prima colazione in una settimana
+(compreso sabato e domenica)? __________________________________
+A colazione prendi latte o yogurt? No
+Si
+A colazione mangi merendine confezionate o biscotti No
+prodotti industrialmente? Si
+Mangi ogni giorno 2 yogurt e/o un po' di formaggio No
+(40g)? Si
+A colazione mangi merendine confezionate o biscotti No
+prodotti industrialmente? Si
+Mangi spesso nella giornata caramelle e/o altri No
+prodotti dolci? Si
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+LIFEMap
+Page 29Q5. LIFEMAP: Qualità di vita (EQ-5D-5L)
+Questionario sulla Salute
+Versione italiana per l'Italia
+(Italian version for Italy)
+ 
+ 
+ATTIVITÀ ABITUALI (per es. lavoro, studio, lavori domestici, attività familiari o di svago)
+Non ho difficoltà nello svolgimento delle attività abituali
+Ho lievi difficoltà nello svolgimento delle attività abituali
+Ho moderate difficoltà nello svolgimento delle attività abituali
+Ho gravi difficoltà nello svolgimento delle attività abituali
+Non sono in grado di svolgere le mie attività abituali
+
+2024-06-20 13:47 Powered by REDCapLIFEMAP Clinical Research Form v. 3.0 20/06/2024
+LIFEMap
+Page 30Q5. LIFEMAP: Qualità di vita (EQ-5D-Y)
+Record ID
+__________________________________
+MOVIMENTO (camminare)
+Non ho nessuna difficoltà a camminare
+Ho un po' di difficoltà a camminare
+Ho molte difficoltà a camminare
+MI PRENDO CURA DI ME (per esempio lavarmi o vestirmi da solo/a)
+Non ho nessuna difficoltà a lavarmi o vestirmi da solo/a
+Ho un po' di difficoltà a lavarmi o vestirmi da solo/a
+Ho molte difficoltà a lavarmi o vestirmi da solo/a
+FARE LE ATTIVITÀ DI TUTTI I GIORNI (per esempio andare a scuola, fare hobby, sport, giocare, fare delle cose con la
+famiglia o con gli amici)
+Non ho nessuna difficoltà a fare le cose di tutti giorni
+Ho un po' di difficoltà a fare le cose di tutti i giorni
+Ho molte difficoltà a fare le cose di tutti i giorni
+
