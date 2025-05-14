@@ -1,6 +1,8 @@
 import transformers
 import torch
 from bert_score import score as bert_score
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 from deap import creator, base, tools, algorithms
 import numpy as np
 import pandas as pd
@@ -110,9 +112,7 @@ class NSGA2Optimizer:
             "max_new_tokens": int(individual["max_new_tokens"]),
         }
 
-        start_time = time.time()
         generated_output = self.generate_with_params(configuration)
-        inference_time = time.time() - start_time
 
         if generated_output.startswith("Error:"):
             return (-1e6, 1e6)
@@ -120,7 +120,12 @@ class NSGA2Optimizer:
         P, R, F1 = bert_score([generated_output], [self.ground_truth], lang="en", verbose=False)
         bert_f1 = F1.mean().item()
 
-        return (bert_f1, inference_time)
+        files = [generated_output, self.ground_truth]
+        tfidf = TfidfVectorizer().fit_transform(files)
+        vectors = tfidf.toarray()
+        cosine_sim = cosine_similarity(vectors)
+
+        return (bert_f1, cosine_sim[0][1])
 
     def optimize(self):
         print("Optimizing...")
@@ -141,8 +146,8 @@ class NSGA2Optimizer:
         stats.register("max", np.max, axis=0)
 
         population = toolbox.population(n=self.populationSize)
-
-        algorithms.eaMuPlusLambda(
+        hof = tools.ParetoFront()
+        population = algorithms.eaMuPlusLambda(
             population,
             toolbox,
             mu=self.muSel,
@@ -152,12 +157,13 @@ class NSGA2Optimizer:
             ngen=self.numGen,
             stats=stats,
             verbose=True,
+            halloffame=hof
         )
 
-        pareto_front = tools.sortNondominated(population, len(population), first_front_only=True)
-        print('Pareto front:', pareto_front[0])
+        # pareto_front = tools.sortNondominated(population, len(population), first_front_only=True)
+        # print('Pareto front:', pareto_front[0])
 
-        return population, pareto_front[0]
+        return population, hof
 
 if __name__ == "__main__":
     options = {
@@ -168,22 +174,25 @@ if __name__ == "__main__":
     "lambda_sel": 20,
     "inner_mut_prob": 0.2,
     "population_size": 30,
-    "weights": (1.0, -1.0),  # Maximize BERT F1, minimize inference time
+    "weights": (1.0, 1.0),  # Maximize BERT F1, minimize inference time
     "model_id": "meta-llama/Meta-Llama-3.1-8B-Instruct",
-    "ground_truth_path": "./UPD_Ground_truth.txt",
-    "extracted_text_path": "./extracted_text.txt",
+    "ground_truth_path": "../ecore/lifemap_ground_truth/lifemap_ground_truth.ecore",
+    "extracted_text_path": "../ecore/lifemap_generated",
     "task_description": '''You are an ER diagram expert. You are tasked with analyzing a text that describes database entities and their relationships. Your objectives are to:
-        1. Identify all entities (tables) mentioned in the text.
-        2. Extract attributes (columns) for each entity and determine their data types if mentioned.
-        3. Identify primary keys and foreign keys to understand the relationships between entities.
-        4. Identify relationships between entities (one-to-one, one-to-many, many-to-many) using the notation:
-        - Entity01 }|..|| Entity02
-   - Entity03 }o..o| Entity04
-   - Entity05 ||--o{ Entity06
-   - Entity07 |o--|| Entity08
-5. If some attributes are not in the text, don't add them to the diagram.
-
-6. Generate a PlantUML script to represent these entities and relationships in an ER diagram. The output should be solely the PlantUML code.'''
+    1. Identify all entities (tables) mentioned in the text and define them as EMF EClasses.
+    2. For each entity, extract attributes (columns) including:
+       - Name: Identify attribute names.
+       - Data Type: Specify the data type if mentioned in the text (e.g., EString, EInt, EBoolean).
+       - Properties: If mentioned, include properties like "required", "default value", etc.
+    3. Identify primary keys and foreign keys to understand relationships between entities. 
+       - Designate attributes as primary or foreign keys where applicable.
+    4. Identify relationships between entities and define them using EMF-compatible syntax:
+       - Specify relationship types (one-to-one, one-to-many, or many-to-many).
+       - Include role names if provided.
+       - Define multiplicities (e.g., 1..1, 0..*, 1..*) and set EReferences to capture relationships.
+    5. Exclude any attributes or details not explicitly mentioned in the text.
+    6. Generate the output as EMF-compatible code in XMI or Ecorefor mat, ensuring it’s suitable for importing into an EMF model. The output should solely be in EMF-compatible syntax.
+    Output should be only the EMF-compatible code for the entities, attributes, and relationships identified in the text. Once you start writing code, do not write any additional text interupting your code.'''
 }
 
     optimizer = NSGA2Optimizer(options)
